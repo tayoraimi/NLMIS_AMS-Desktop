@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.GeneratorMainController">
+   <top>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleAddAction" text="Add" fx:id="x_ADD_GENERATOR_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" fx:id="x_EDIT_GENERATOR_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshGeneratorTable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+        <TableView fx:id="generatorTable" GridPane.rowIndex="1">
+           <columns>
+              <TableColumn fx:id="generatorStateColumn" style="-fx-alignment: center-left;" text="State" />
+              <TableColumn fx:id="generatorLgaColumn" style="-fx-alignment: center-left;" text="LGA" />
+              <TableColumn fx:id="generatorWardColumn" style="-fx-alignment: center-left;" text="Ward" />
+              <TableColumn fx:id="generatorLocationColumn" style="-fx-alignment: center-left;" text="Equipment Location" />
+              <TableColumn fx:id="generatorFacilityNameColumn" style="-fx-alignment: center;" text="Name of Facility" />
+              <TableColumn fx:id="generatorFacilityHasElectricityColumn" style="-fx-alignment: center;" text="Location Has Electricity" />
+              <TableColumn fx:id="generatorElectricityHrsColumn" style="-fx-alignment: center-left;" text="Hours of Electricity per Day" />
+              <TableColumn fx:id="generatorManufacturerColumn" style="-fx-alignment: center-left;" text="Manufacturer" />
+              <TableColumn fx:id="generatorModelColumn" style="-fx-alignment: center;" text="Model" />
+              <TableColumn fx:id="generatorPowerColumn" style="-fx-alignment: center-left;" text="Power" />
+              <TableColumn fx:id="generatorFunctionalColumn" style="-fx-alignment: center;" text="Functional Status" />
+              <TableColumn fx:id="generatorAgeColumn" style="-fx-alignment: center-left;" text="Age" />
+              <TableColumn fx:id="generatorFuelTypeColumn" style="-fx-alignment: center;" text="Fuel Type" />
+              <TableColumn fx:id="generatorFuelAvailableColumn" style="-fx-alignment: center-left;" text="Fuel Purchased This Week" />
+              <TableColumn fx:id="generatorPPMColumn" style="-fx-alignment: center;" text="PPM Conducted" />
+              <TableColumn fx:id="generatorPlannedRepairsColumn" style="-fx-alignment: center;" text="Repairs Planned?" />
+              <TableColumn fx:id="generatorDurationNFColumn" style="-fx-alignment: center;" text="Duration NF(Months)" />
+           </columns>
+        </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

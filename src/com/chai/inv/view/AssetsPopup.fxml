@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="popupDataEntyAnchor" stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.AssetsPopupController">
+   <center>
+      <GridPane alignment="CENTER" BorderPane.alignment="CENTER" fx:id="x_GRID_PANE">
+        <columnConstraints>
+            <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleTransportBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Transport" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" fx:id="x_TRANSPORT_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="85.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/transport-icon.jpg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleTMCBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="TMC" GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="x_TMC_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="64.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/tmc.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleGeneratorBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Related Equipments" fx:id="x_GENERATOR_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="76.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/related_devices.jpeg" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCCEBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Cold Rooms &amp;Freezer rooms" GridPane.columnIndex="1" fx:id="x_CCE_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/wicr.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+</BorderPane>

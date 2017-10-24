@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.LandingPageController">
+   <center>
+
+      <GridPane alignment="CENTER" hgap="15.0" layoutX="85.0" layoutY="100.0" fx:id="x_GRID_PANE">
+         <columnConstraints>
+			<ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadHomePage" prefHeight="135.0" prefWidth="141.0" text="LMIS" GridPane.halignment="RIGHT" fx:id="x_MODULE1_BTN">
+               <cursor>   
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAssetManagementAction" prefHeight="135.0" prefWidth="141.0" text="Asset Management" GridPane.columnIndex="1" GridPane.halignment="LEFT" fx:id="x_MODULE2_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

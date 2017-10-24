@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.CCEAssetMainController">
+   <top>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleAddAction" text="Add" fx:id="x_ADD_CCE_ASSET_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" fx:id="x_EDIT_CCE_ASSET_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshCCEAssetTable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="66.0" />
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+        <TableView fx:id="cceAssetTable" GridPane.rowIndex="1">
+           <columns>
+              <TableColumn fx:id="cceAssetModelColumn" style="-fx-alignment: center;" text="Model" />
+              <TableColumn fx:id="cceAssetDesignationColumn" style="-fx-alignment: center-left;" text="Designation" />
+            <TableColumn fx:id="cceAssetCategoryColumn" style="-fx-alignment: center-left;" text="Category" />
+              <TableColumn fx:id="cceAssetCompanyColumn" style="-fx-alignment: center-left;" text="Company" />
+              <TableColumn fx:id="cceAssetRefrigerantColumn" style="-fx-alignment: center-left;" text="Refrigerant" />
+              <TableColumn fx:id="cceAssetVolNegColumn" prefWidth="57.0" style="-fx-alignment: center;" text="Vol -" />
+              <TableColumn fx:id="cceAssetVolPosColumn" prefWidth="75.0" style="-fx-alignment: center-left;" text="Vol +" />
+              <TableColumn fx:id="cceAssetExpectedLifeColumn" prefWidth="89.0" style="-fx-alignment: center;" text="Expected Worling Life" />
+            <TableColumn fx:id="cceAssetPriceColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Price" />
+              <TableColumn fx:id="cceAssetTypeColumn" prefWidth="105.0" style="-fx-alignment: center;" text="Type" />
+            <TableColumn fx:id="cceAssetEnergyColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Energy" />
+           </columns>
+        </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

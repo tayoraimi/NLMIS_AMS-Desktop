@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.TransactionRegisterController">
+   <center>
+      <TableView fx:id="transactionRegisterTable" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="75.0" style="-fx-alignment: center-left;" text="Item" fx:id="x_ITEM_NUMBER" />
+            <TableColumn prefWidth="75.0" style="-fx-alignment: center;" text="Quantity" fx:id="x_TRANSACTION_QUANTITY" />
+            <TableColumn prefWidth="75.0" style="-fx-alignment: center;" text="UOM" fx:id="x_TRANSACTION_UOM" />
+            <TableColumn minWidth="54.0" prefWidth="139.0" style="-fx-alignment: center;" text="Transaction DateTime" fx:id="x_TRANSACTION_DATE" />
+            <TableColumn minWidth="31.0" prefWidth="113.0" style="-fx-alignment: center-left;" text="Transaction Type" fx:id="x_TRANSACTION_TYPE" />
+            <TableColumn maxWidth="-1.0" minWidth="150.0" prefWidth="-1.0" style="-fx-alignment: center-left;" text="Reason" fx:id="x_REASON_TYPE" />
+            <TableColumn prefWidth="89.0" style="-fx-alignment: center-left;" text="Comment" fx:id="x_REASON" />
+            <TableColumn prefWidth="100.0" style="-fx-alignment: center-left;" text="Source" fx:id="x_FROM_NAME" />
+            <TableColumn minWidth="21.0" prefWidth="-1.0" style="-fx-alignment: center-left;" text="Destination" fx:id="x_TO_NAME" />
+            <TableColumn prefWidth="75.0" text="Reason Type Id" visible="false" fx:id="x_REASON_TYPE_ID" />
+            <TableColumn minWidth="17.0" prefWidth="-1.0" style="-fx-alignment: center-left;" text="VVM Status" fx:id="x_VVM_STATUS" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+   <top>
+      <ToolBar fx:id="x_TOOL_BAR">
+         <items>
+            <Label layoutX="10.0" layoutY="13.0" text="LGA:" fx:id="x_LGA_LBL">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" layoutX="48.0" layoutY="11.0" onAction="#onLGAChange" prefWidth="120.0" promptText="Select LGA" fx:id="x_LGA_DRPDN" />
+            <Label text="Item:" fx:id="x_ITEM_LBL">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" onAction="#onChangeProduct" prefWidth="120.0" promptText="Select Item" fx:id="x_ITEM_DROP_DOWN" />
+            <Label text="Transaction Type">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" onAction="#handleTransactionTypeChange" prefWidth="120.0" promptText="Select Transaction Type" fx:id="x_TRANSACTION_TYPE_DROP_DOWN" />
+            <Label text="From Date">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <DatePicker prefWidth="120.0" promptText="From" fx:id="x_FROM_DATE_PICKER" />
+            <Label text="To Date">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <DatePicker prefWidth="120.0" promptText="To" fx:id="x_TO_DATE_PICKER" />
+            <Button mnemonicParsing="false" onAction="#handleRefreshAction" text="Refresh" />
+            <Button mnemonicParsing="false" onAction="#handleExportAction" text="Export" />
+         </items>
+      </ToolBar>
+   </top>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="51.0" prefWidth="49.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

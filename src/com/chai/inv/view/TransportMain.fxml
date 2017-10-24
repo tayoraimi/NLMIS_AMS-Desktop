@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.TransportMainController">
+   <top>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleAddAction" text="Add" fx:id="x_ADD_TRANSPORT_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" fx:id="x_EDIT_TRANSPORT_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshTransportTable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+        <TableView fx:id="transportTable" GridPane.rowIndex="1">
+            <columns>
+               <TableColumn fx:id="transportStateColumn" prefWidth="45.0" style="-fx-alignment: center-left;" text="State" />
+               <TableColumn fx:id="transportLgaColumn" prefWidth="44.0" style="-fx-alignment: center-left;" text="LGA" />
+               <TableColumn fx:id="transportWardColumn" prefWidth="45.0" style="-fx-alignment: center-left;" text="Ward" />
+               <TableColumn fx:id="transportLocationColumn" prefWidth="59.0" style="-fx-alignment: center-left;" text="Equipment Location" />
+               <TableColumn fx:id="transportFacilityNameColumn" prefWidth="41.0" style="-fx-alignment: center;" text="Name of Facility" />
+               <TableColumn fx:id="transportTargetPopulationColumn" prefWidth="49.0" style="-fx-alignment: center;" text="Target Population" />
+               <TableColumn fx:id="transportNumberOfHFColumn" prefWidth="76.0" style="-fx-alignment: center;" text="Number of HF Served" />
+               <TableColumn fx:id="transportTypeColumn" prefWidth="38.0" style="-fx-alignment: center;" text="Type of Transport" />
+               <TableColumn fx:id="transportMakeColumn" prefWidth="38.0" style="-fx-alignment: center-left;" text="Make" />
+               <TableColumn fx:id="transportModelColumn" prefWidth="64.0" style="-fx-alignment: center;" text="Model" />
+               <TableColumn fx:id="transportOwnerColumn" prefWidth="54.0" style="-fx-alignment: center-left;" text="Owner" />
+               <TableColumn fx:id="transportAgeColumn" prefWidth="41.0" style="-fx-alignment: center;" text="Age of Transportation Equipment" />
+               <TableColumn fx:id="transportMaintenanceColumn" prefWidth="52.0" style="-fx-alignment: center;" text="Serviced?" />
+               <TableColumn fx:id="transportFunctionalColumn" prefWidth="60.0" style="-fx-alignment: center;" text="Functional Status" />
+               <TableColumn fx:id="transportFuelAvailableColumn" prefWidth="48.0" style="-fx-alignment: center-left;" text="Fuel Purchased" />
+               <TableColumn fx:id="transportPlannedRepairsColumn" style="-fx-alignment: center;" text="PPM Conducted This Month?" />
+               <TableColumn fx:id="transportAwaitingFundColumn" prefWidth="48.0" style="-fx-alignment: center-left;" text="Awaiting funds for repairs?" />
+               <TableColumn fx:id="transportDurationNFColumn" prefWidth="83.0" style="-fx-alignment: center;" text="Duration NF(Months)" />
+               <TableColumn fx:id="transportPublicFundColumn" prefWidth="69.0" style="-fx-alignment: center;" text="Fund Available?" />
+               <TableColumn fx:id="transportDistanceColumn" prefWidth="68.0" style="-fx-alignment: center;" text="Distance from Vaccine Source" />
+            </columns>
+         </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

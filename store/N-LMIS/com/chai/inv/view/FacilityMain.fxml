@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.FacilityMainController">
+   <top>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleAddAction" text="Add" fx:id="x_ADD_STORE_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" fx:id="x_EDIT_STORE_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleHistoryAction" text="History">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_history.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleExportAction" text="Export">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/Export_load_upload.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshFacilityTable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+      <TableView fx:id="facilityTable" BorderPane.alignment="CENTER">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn fx:id="facilityWarehouseCodeColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Store Code" visible="false" />
+            <TableColumn fx:id="facilityWarehouseNameColumn" prefWidth="86.0" style="-fx-alignment: center-left;" text="Store Name" />
+            <TableColumn fx:id="facilityWarehouseDescriptionColumn" prefWidth="86.0" style="-fx-alignment: center;" text="Description" visible="false" />
+            <TableColumn fx:id="facilityWarehouseTypeColumn" prefWidth="86.0" style="-fx-alignment: center-left;" text="Store type" />
+            <TableColumn fx:id="mtpColumn" prefWidth="91.0" style="-fx-alignment: center;" text="MTP" />
+            <TableColumn fx:id="facilityAddress1Column" prefWidth="86.0" style="-fx-alignment: center;" text="Address" visible="false" />
+            <TableColumn fx:id="facilityStateColumn" prefWidth="91.0" style="-fx-alignment: center;" text="State" visible="false" />
+            <TableColumn fx:id="facilityCountryColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Country" visible="false" />
+            <TableColumn fx:id="facilityTelephoneNumberColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Telephone Number" />
+            <TableColumn fx:id="defaultOrderingStoreCodeColumn" prefWidth="86.0" style="-fx-alignment: center-left;" text="Default Ordering Store" />
+            <TableColumn fx:id="facilityFaxNumberColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Fax Number" visible="false" />
+            <TableColumn fx:id="facilityStatusColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Status" />
+            <TableColumn fx:id="startDateColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Start Date" />
+            <TableColumn fx:id="endDateColumn" prefWidth="91.0" style="-fx-alignment: center;" text="End Date" />
+            <TableColumn fx:id="companyIdColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Company Id" visible="false" />
+            <TableColumn fx:id="facilityWarehouseTypeIdColumn" prefWidth="86.0" style="-fx-alignment: center;" text="Warehouse Type Id" visible="false" />
+            <TableColumn fx:id="facilityCountryIdColumn" prefWidth="91.0" style="-fx-alignment: center;" text="Country Id" visible="false" />
+            <TableColumn fx:id="facilityStateIdColumn" prefWidth="91.0" style="-fx-alignment: center;" text="State Id" visible="false" />
+            <TableColumn fx:id="warehouseIdColumn" prefWidth="86.0" style="-fx-alignment: center;" text="Warehouse Id" visible="false" />
+            <TableColumn fx:id="defaultOrderingStoreIdColumn" prefWidth="86.0" style="-fx-alignment: center;" text="Default Ordering Store Id" visible="false" />
+         </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

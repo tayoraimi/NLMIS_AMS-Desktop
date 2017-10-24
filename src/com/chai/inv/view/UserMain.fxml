@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.UserMainController">
+   <top>
+      <VBox>
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ToolBar fx:id="x_TOOL_BAR">
+                    <items>
+                        <Button mnemonicParsing="false" onAction="#handleAddAction" text="Add" textFill="#000000b2" fx:id="x_ADD_USER_BTN">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../resources/icons/file_add.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" fx:id="x_EDIT_USER_BTN">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../resources/icons/file_edit.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../resources/icons/file_search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleHistoryAction" text="History">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../resources/icons/file_history.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleExportAction" text="Export">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../resources/icons/Export_load_upload.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#handleChangePasswordAction" text="Change Password" fx:id="x_CHANGE_PASSWORD">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../resources/icons/change_password.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#refreshUserTableGrid" text="Refresh" fx:id="x_REFRESH_USER_TABLE_BTN">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../resources/icons/refreshIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                    </items>
+                  </ToolBar>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="userTable" onMouseClicked="#handleRowSelectAction" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="firstNameColumn" prefWidth="91.0" style="-fx-alignment: center-left;" text="First Name" />
+          <TableColumn fx:id="lastNameColumn" prefWidth="86.0" style="-fx-alignment: center-left;" text="Last Name" />
+            <TableColumn fx:id="loginNameColumn" prefWidth="86.0" style="-fx-alignment: center-left;" text="Username" />
+            <TableColumn fx:id="passwordColumn" prefWidth="86.0" style="-fx-alignment: center-left;" text="Password" />
+            <TableColumn fx:id="statusColumn" prefWidth="86.0" style="-fx-alignment: center;" text="Status" />
+            <TableColumn fx:id="activeStatusColumn" prefWidth="86.0" style="-fx-alignment: center;" text="Active" visible="false" />
+            <TableColumn fx:id="assignedLGA" minWidth="200.0" prefWidth="-1.0" style="-fx-alignment: center-left;" text="Assigned LGA" />
+            <TableColumn fx:id="userIdColumn" prefWidth="91.0" text="User Id" visible="false" />
+            <TableColumn fx:id="userType" prefWidth="91.0" style="-fx-alignment: center-left;" text="User Type" />
+            <TableColumn fx:id="activatedOn" prefWidth="91.0" style="-fx-alignment: center;" text="Activated On" />
+            <TableColumn fx:id="email" prefWidth="200.0" style="-fx-alignment: center-left;" text="E-mail" />
+            <TableColumn fx:id="telephone_number" prefWidth="130.0" style="-fx-alignment: center;" text="Telephone" />
+            <TableColumn fx:id="startDate" prefWidth="91.0" style="-fx-alignment: center;" text="Start Date" />
+            <TableColumn fx:id="endDate" prefWidth="91.0" text="End Date" />
+            <TableColumn fx:id="companyIdColumn" prefWidth="91.0" text="Company Id" visible="false" />
+            <TableColumn fx:id="userTypeIdColumn" prefWidth="91.0" text="User Type Id" visible="false" />
+            <TableColumn fx:id="facilityFlag" prefWidth="91.0" text="Facility Flag" />
+            <TableColumn fx:id="userRole" prefWidth="91.0" style="-fx-alignment: center-left;" text="Role" />
+            <TableColumn fx:id="assignedLGAID" minWidth="200.0" prefWidth="-1.0" text="Assigned LGA ID" visible="false" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="73.0" prefWidth="1201.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Row Count : " fx:id="x_ROW_COUNT">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </HBox.margin>
+            </Text>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

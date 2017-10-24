@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.CCEStatusDashboardController">
+   <top>
+      <VBox fx:id="x_VBOX">
+         <children>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshCCEStatusTable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="32.0" />
+            <CheckBox mnemonicParsing="false" onAction="#handleHideCheckBox" text="Show Hidden Column" fx:id="x_CCE_STATUS_HIDE_COLUMNS" />
+            <Label prefHeight="17.0" prefWidth="24.0" />
+            <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: green;" />
+            <Label text="Percentage &gt; 90%" />
+            <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: yellow;" />
+            <Label text="Percentage &gt;50% or &lt;89%" />
+            <Label text="Percentage &lt;49%" />
+            <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: red;" />
+         </items>
+      </ToolBar>
+        <ToolBar prefHeight="35.0" prefWidth="200.0" fx:id="x_FILTER_TOOLBAR">
+           <items>
+              <Label text="Disaggregate by" />
+              <ComboBox onAction="#handleOnLevelSelected" prefWidth="150.0" promptText="Select Level" visibleRowCount="6" fx:id="x_CCE_STATUS_LEVEL" />
+           </items>
+        </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+        <TableView fx:id="cceStatusTable" GridPane.rowIndex="1">
+           <columns>
+              <TableColumn fx:id="cceStatusStateColumn" style="-fx-alignment: center-left;" text="State" />
+              <TableColumn fx:id="cceStatusLgaColumn" style="-fx-alignment: center-left;" text="LGA" />
+              <TableColumn fx:id="cceStatusWardColumn" style="-fx-alignment: center-left;" text="Ward" />
+              <TableColumn fx:id="cceStatusLocationColumn" style="-fx-alignment: center-left;" text="Equipment Location" />
+              <TableColumn fx:id="cceStatusFColumn" style="-fx-alignment: center-left;" text="Functional" />
+              <TableColumn fx:id="cceStatusNFColumn" style="-fx-alignment: center-left;" text="Not Functional" />
+              <TableColumn fx:id="cceStatusNIColumn" style="-fx-alignment: center;" text="Not Installed" />
+            <TableColumn fx:id="cceStatusOFColumn" style="-fx-alignment: center-left;" text="Obsolete and Functional" visible="false" />
+              <TableColumn fx:id="cceStatusONFColumn" style="-fx-alignment: center-left;" text="Obsolete and Non Functional" visible="false" />
+            <TableColumn fx:id="cceStatusTotalColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Total" />
+           </columns>
+        </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.CCEMainController">
+   <top>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleAddAction" text="Add" fx:id="x_ADD_CCE_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_add.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleEditAction" text="Edit" fx:id="x_EDIT_CCE_BTN">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_edit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshCCETable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label prefWidth="600.0" />
+            <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: red;" />
+            <Label text="Obsolete" />
+            <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: yellow;" />
+            <Label text="Repairable" />
+            <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: green;" />
+            <Label text="Not Installed / Good" />
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+        <TableView fx:id="cceTable" GridPane.rowIndex="1">
+           <columns>
+              <TableColumn fx:id="cceStateColumn" style="-fx-alignment: center-left;" text="State" />
+              <TableColumn fx:id="cceLgaColumn" style="-fx-alignment: center-left;" text="LGA" />
+              <TableColumn fx:id="cceWardColumn" style="-fx-alignment: center-left;" text="Ward" />
+              <TableColumn fx:id="cceLocationColumn" style="-fx-alignment: center-left;" text="Equipment Location" />
+              <TableColumn fx:id="cceFacilityNameColumn" style="-fx-alignment: center;" text="Name of Facility" />
+              <TableColumn fx:id="cceDesignationColumn" style="-fx-alignment: center-left;" text="Designation" />
+              <TableColumn fx:id="cceMakeColumn" style="-fx-alignment: center-left;" text="Make" />
+              <TableColumn fx:id="cceModelColumn" style="-fx-alignment: center;" text="Model" />
+            <TableColumn fx:id="cceSerialNoColumn" style="-fx-alignment: center-left;" text="Serial No" />
+              <TableColumn fx:id="cceRefrigerantColumn" style="-fx-alignment: center-left;" text="Refrigerant" />
+              <TableColumn fx:id="cceVolNegColumn" prefWidth="57.0" style="-fx-alignment: center;" text="Vol -" />
+              <TableColumn fx:id="cceVolPosColumn" prefWidth="75.0" style="-fx-alignment: center-left;" text="Vol +" />
+              <TableColumn fx:id="cceSummaryColumn" prefWidth="89.0" style="-fx-alignment: center;" text="Summary" />
+            <TableColumn fx:id="cceDateNFColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Date NF" />
+            <TableColumn fx:id="cceEnergyColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Energy" />
+              <TableColumn fx:id="cceYearOfAcquisitionColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Year of Acquisition" />
+              <TableColumn fx:id="cceSourceColumn" prefWidth="105.0" style="-fx-alignment: center;" text="Source of CCE" />
+           </columns>
+        </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

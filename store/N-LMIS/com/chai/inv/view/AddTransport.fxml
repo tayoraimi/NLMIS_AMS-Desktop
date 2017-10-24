@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="585.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.TransportEditDialogController">
+   <children>
+      <GridPane alignment="CENTER" layoutX="32.0" layoutY="14.0" prefHeight="536.0" prefWidth="414.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="10.0" prefWidth="286.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="280.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="205.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="205.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="S No" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label text="State" GridPane.columnIndex="1" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="LGA" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Ward" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Ward" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BASELINE" fx:id="x_TRANSPORT_WARD">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <Label text="Equipment Location" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Facility Name" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Type of Transport" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="194.0" promptText="Type of Transport" style="-fx-font-size: 15;" GridPane.rowIndex="10" GridPane.valignment="BASELINE" fx:id="x_TRANSPORT_TYPE">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+            <DatePicker layoutX="10.0" layoutY="276.0" prefHeight="32.0" prefWidth="225.0" promptText="Age" style="-fx-font-size: 15;" GridPane.rowIndex="14" GridPane.valignment="BASELINE" fx:id="x_TRANSPORT_AGE">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </DatePicker>
+            <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleSubmitGenerator" prefHeight="31.0" prefWidth="189.0" text="Ok" GridPane.rowIndex="22" GridPane.valignment="TOP">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets right="30.0" top="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Button cancelButton="true" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCancelGenerator" prefHeight="31.0" prefWidth="186.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="22" GridPane.valignment="TOP">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="30.0" top="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Label text="Model" GridPane.rowIndex="11" GridPane.valignment="BOTTOM" fx:id="x_ASSIGN_LGA_LBL">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="192.0" promptText="Model" visibleRowCount="6" GridPane.rowIndex="12" GridPane.valignment="TOP" fx:id="x_TRANSPORT_MODEL">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="194.0" promptText="PT Funds Available?" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="19" GridPane.valignment="BASELINE" fx:id="x_TRANSPORT_FUNDS">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="194.0" promptText="Duration of NF" style="-fx-font-size: 15;" GridPane.rowIndex="19" GridPane.valignment="BASELINE" fx:id="x_TRANSPORT_NF_DURATION">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="LGA" style="-fx-font-size: 15;" GridPane.rowIndex="3" fx:id="x_TRANSPORT_LGA" />
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="State" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="x_TRANSPORT_STATE">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="S No" style="-fx-font-size: 15;" GridPane.rowIndex="1" fx:id="x_S_NO" />
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Location" style="-fx-font-size: 15;" GridPane.rowIndex="5" fx:id="x_TRANSPORT_LOCATION" />
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Facility Name" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="5" fx:id="x_TRANSPORT_FACILITY">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Hours of Electricity" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="9" fx:id="x_TRANSPORT_HOURS_ELECTRICITY">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <Label text="Hours of Electricity" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <CheckBox mnemonicParsing="false" text="Location has Electricity?" GridPane.rowIndex="8" fx:id="x_LOCATION_HAS_ELECTRICITY">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </CheckBox>
+            <Label text="Owner" GridPane.columnIndex="1" GridPane.rowIndex="12" fx:id="x_ASSIGN_LGA_LBL1">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="192.0" promptText="Owner" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="13" fx:id="x_TRANSPORT_OWNER">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin></ComboBox>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="192.0" promptText="Status" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="15" fx:id="x_TRANSPORT_STATUS">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <Label text="Functional Status" GridPane.columnIndex="1" GridPane.rowIndex="14" fx:id="x_ASSIGN_LGA_LBL2">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Age of Transportation" GridPane.rowIndex="13">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <CheckBox mnemonicParsing="false" text="Fuel Available?" GridPane.columnIndex="1" GridPane.rowIndex="16" fx:id="x_TRANSPORT_FUEL_AVAILABLE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <Label text="Public Transport Funds?" GridPane.columnIndex="1" GridPane.rowIndex="18">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <CheckBox mnemonicParsing="false" text="Awaiting Funds" GridPane.columnIndex="1" GridPane.rowIndex="17" fx:id="x_TRANSPORT_AWAITING_FUNDS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <CheckBox mnemonicParsing="false" text="Repairs Planned?" GridPane.rowIndex="17" fx:id="x_TRANSPORT_REPAIRS">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </CheckBox>
+            <Label text="Duration of NF(Months)" GridPane.rowIndex="18">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="194.0" promptText="Make" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="11" fx:id="x_TRANSPORT_MAKE">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <Label text="Make" GridPane.columnIndex="1" GridPane.rowIndex="10">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="192.0" promptText="Maintenance" visibleRowCount="6" GridPane.rowIndex="16" fx:id="x_TRANSPORT_MAINTENANCE" />
+            <Label text="Maintenance" GridPane.rowIndex="15" fx:id="x_ASSIGN_LGA_LBL3">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Number of HF Served" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Target Population" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Target Population" style="-fx-font-size: 15;" GridPane.rowIndex="7" fx:id="x_TRANSPORT_TARGET_POPULATION" />
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Number of HF Served" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x_TRANSPORT_NUMBER_OF_HF">
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <Label text="Distance from Vaccine Source" GridPane.rowIndex="20">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox editable="true" prefHeight="31.0" prefWidth="194.0" promptText="Distance" style="-fx-font-size: 15;" GridPane.rowIndex="21" fx:id="x_TRANSPORT_DISTANCE">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

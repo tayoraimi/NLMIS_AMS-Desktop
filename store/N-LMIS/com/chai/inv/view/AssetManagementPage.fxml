@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.AssetManagementPageController">
+   <center>
+
+      <GridPane alignment="CENTER" hgap="15.0" layoutX="85.0" layoutY="100.0" fx:id="x_GRID_PANE">
+         <columnConstraints>
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="0.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAssetsPopupBtn" prefHeight="135.0" prefWidth="141.0" text="Assets" GridPane.halignment="RIGHT" fx:id="x_ASSETS_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleWasteManagementPopup" prefHeight="135.0" prefWidth="141.0" text="Waste Management" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" fx:id="x_WASTE_MANAGE_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleReportsPopupBtn" prefHeight="135.0" prefWidth="141.0" text="Reports" GridPane.columnIndex="2" GridPane.halignment="LEFT" fx:id="x_REPORTS_BTN">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

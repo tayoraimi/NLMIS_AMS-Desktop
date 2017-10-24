@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: N-LMIS
+Implementation-Version: 1.0
+Permissions: sandbox
+Codebase: *
+JavaFX-Version: 8.0
+Class-Path: lib/controlsfx-8.0.6_20.jar lib/jakarta-poi-2.5.jar lib/js
+ on.jar lib/mysql-connector-java-5.1.18-bin.jar
+Created-By: JavaFX Packager
+Implementation-Vendor: Temi
+Main-Class: com.chai.inv.MainApp
+

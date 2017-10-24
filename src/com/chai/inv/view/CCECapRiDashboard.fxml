@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.CCECapRiDashboardController">
+   <top>
+      <VBox fx:id="x_VBOX">
+         <children>
+      <ToolBar fx:id="x_TOOLBAR">
+         <items>
+            <Button mnemonicParsing="false" onAction="#handleSearchAction" text="Search" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/file_search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshCCECapRiTable" text="Refresh">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/refreshIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label prefHeight="17.0" prefWidth="32.0" />
+            <CheckBox mnemonicParsing="false" onAction="#handleHideCheckBox" text="Show Hidden Column" visible="false" fx:id="x_CCE_CAP_RI_HIDE_COLUMNS" />
+            <Label prefHeight="17.0" prefWidth="24.0" />
+         </items>
+      </ToolBar>
+        <ToolBar prefHeight="35.0" prefWidth="200.0" fx:id="x_FILTER_TOOLBAR">
+           <items>
+                  <Label text="Select Vaccine" />
+                  <ComboBox onAction="#handleOnVaccineSelected" prefWidth="150.0" promptText="Select Vaccine" visibleRowCount="6" fx:id="x_CCE_CAP_RI_VACCINE" />
+              <Label text="Disaggregate by" visible="false" />
+              <ComboBox onAction="#handleOnLevelSelected" prefWidth="150.0" promptText="Select Level" visible="false" visibleRowCount="6" fx:id="x_CCE_CAP_RI_LEVEL" />
+           </items>
+        </ToolBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+        <TableView fx:id="cceCapRiTable" GridPane.rowIndex="1">
+           <columns>
+              <TableColumn fx:id="cceCapRiSupplyChainLevelColumn" style="-fx-alignment: center-left;" text="Supply Chain" />
+              <TableColumn fx:id="cceCapRiStateColumn" style="-fx-alignment: center-left;" text="State" />
+              <TableColumn fx:id="cceCapRiLgaColumn" style="-fx-alignment: center-left;" text="LGA" />
+              <TableColumn fx:id="cceCapRiWardColumn" style="-fx-alignment: center-left;" text="Ward" />
+              <TableColumn fx:id="cceCapRiFacilityNameColumn" style="-fx-alignment: center-left;" text="Name of Store" />
+              <TableColumn fx:id="cceCapRiAnnualBirthRateColumn" style="-fx-alignment: center-left;" text="Annual birth" />
+              <TableColumn fx:id="cceCapRiSafetyStockColumn" style="-fx-alignment: center;" text="Safety stock (months)" />
+            <TableColumn fx:id="cceCapRiSupplyIntervalForSafeInjectionEquiptColumn" style="-fx-alignment: center-left;" text="Supply interval for safe injection equipt (months)" />
+              <TableColumn fx:id="cceCapRiContigencyFactorColumn" style="-fx-alignment: center-left;" text="Contingency factor" />
+            <TableColumn fx:id="cceCapRiMaximumStockColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Maximum stock (months)" />
+            <TableColumn fx:id="cceCapRiScheduleVaccinesColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Schedule vaccines" />
+            <TableColumn fx:id="cceCapRiOthersInterventionsColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Others interventions" />
+            <TableColumn fx:id="cceCapRiTotalVolumeColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Total volume" />
+            <TableColumn fx:id="cceCapRiIfMoreThan3MonthsColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="if more than 3 months storage" />
+            <TableColumn fx:id="cceCapRiAt2cTo8cColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="at +2°C to +8°C" />
+            <TableColumn fx:id="cceCapRiAt25cTo15c" prefWidth="74.0" style="-fx-alignment: center-left;" text="at -25°C to -15°C" />
+            <TableColumn fx:id="cceCapRiAt2cTo8c2Column" prefWidth="74.0" style="-fx-alignment: center-left;" text="at +2°C to +8°C2" />
+            <TableColumn fx:id="cceCapRiAt25cTo15c3Column" prefWidth="74.0" style="-fx-alignment: center-left;" text="at -25°C to -15°C3" />
+            <TableColumn fx:id="cceCapRiAt2cTo8c4Column" prefWidth="74.0" style="-fx-alignment: center-left;" text="at +2°C to +8°C4" />
+            <TableColumn fx:id="cceCapRiAt25cTo15c5Column" prefWidth="74.0" style="-fx-alignment: center-left;" text="at -25°C to -15°C5" />
+           </columns>
+        </TableView>
+   </center>
+   <bottom>
+      <HBox prefHeight="68.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleHomeDashBoardBtn" prefHeight="44.0" prefWidth="61.0" text="Home">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../resources/icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label text="Row Count : " fx:id="x_ROW_COUNT">
+               <HBox.margin>
+                  <Insets top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="30.0" top="10.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
