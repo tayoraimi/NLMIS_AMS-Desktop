@@ -797,7 +797,7 @@ public class RootLayoutController {
 			.owner(getPrimaryStage())
 			.title("About N-LIMS")
 			.masthead("N-LIMS | Version: "+new CommonService().getVersionNumber()+" | "+applicationFor)
-			.message("N-LIMS: Desktop application developed using JavaFx 8 Technology, by Yusata Infotech Pvt. Ltd. Jaipur, Rajasthan, India")
+			.message("N-LIMS/AMS: Desktop application developed using JavaFx 8 Technology, by Temitayo Consulting, Lagos, Nigeria")
 			.showInformation();
 		} catch (IOException e) {
 			MainApp.LOGGER.setLevel(Level.SEVERE);			
