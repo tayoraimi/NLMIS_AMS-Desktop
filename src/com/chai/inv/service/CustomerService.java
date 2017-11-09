@@ -850,7 +850,7 @@ public class CustomerService {
 
 	public boolean checkForRecordAvailablility(String x_USER_WAREHOUSE_ID, String x_CUSTOMER_ID) {
 		boolean flag = false;
-		String query = "SELECT COUNT(*) "
+		String query = "SELECT EXISTS (SELECT * "
 				+ " FROM CUSTOMERS_MONTHLY_PRODUCT_DETAIL CUSTDTL "
 				+ " LEFT OUTER JOIN "
 				+ " CUSTOMER_PRODUCT_CONSUMPTION CONS "
@@ -865,7 +865,7 @@ public class CustomerService {
 				+ " AND CUSTDTL.WAREHOUSE_ID IS NOT NULL "
 				+ " AND (CONS.ORDER_CREATED_FLAG <> 'Y' OR CONS.ORDER_CREATED_FLAG IS NULL) "
 				+ " JOIN VIEW_ITEM_MASTERS ITM "
-				+ " ON CUSTDTL.ITEM_ID = ITM.ITEM_ID ";
+				+ " ON CUSTDTL.ITEM_ID = ITM.ITEM_ID )";
 		try {
 			if (dao == null || dao.getConnection().isClosed()) {
 				dao = DatabaseOperation.getDbo();

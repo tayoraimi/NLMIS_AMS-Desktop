@@ -1,5 +1,6 @@
 package com.chai.inv;
 
+import com.chai.inv.DAO.DatabaseOperation;
 import static com.chai.inv.RootLayoutController.mainBorderPane;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -98,6 +99,8 @@ public class LandingPageController {
 
         @FXML
         public void loadHomePage() throws SQLException {
+            
+				DatabaseOperation.CONNECT_TO_SERVER = false;
 		System.out.println("RootLayout loadHomePage Called..");
 		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/HomePage.fxml"));
 		try {
@@ -123,6 +126,8 @@ public class LandingPageController {
 	
         @FXML 
                 public void handleAssetManagementAction() {
+                    
+				DatabaseOperation.CONNECT_TO_SERVER = true;
 		System.out.println("Asset Management selected..");
 		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/AssetManagementPage.fxml"));
 		try {

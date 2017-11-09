@@ -67,7 +67,7 @@ public class LoginController {
                                 System.out.println("MainApp.dbName!=null: "+MainApp.dbName);
 				if(MainApp.dbName!=null && MainApp.dbName.length()!=0)
 				{
-					DatabaseOperation.CONNECT_TO_SERVER=true;//check and use central db alone
+					DatabaseOperation.CONNECT_TO_SERVER=false;//check and use central db alone
                                         System.out.println("The status of 1 "+DatabaseOperation.CONNECT_TO_SERVER);
 					validated=userService.validateUserNew(userBean);
 					if(validated)

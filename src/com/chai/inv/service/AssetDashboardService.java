@@ -196,7 +196,7 @@ public class AssetDashboardService {
                 			
 		ObservableList<CCECapacityBean > cceCapacityDashboardlist=FXCollections.observableArrayList();
 		String x_QUERY= "SELECT STATE_ID, STATE, LGA_ID, LGA, WARD,"
-                        + " FACILITY_ID, WAREHOUSE_TYPE_ID, LOCATION,"
+                        + " FACILITY_ID, WAREHOUSE_TYPE_ID, SUPPLY_CHAIN_LEVEL,"
                         + " DEFAULT_ORDERING_WAREHOUSE_ID,"
                         + " CONCAT(SUM(RI_A),'/',SUM(RI_R)) AS RI,"
                         + " CONCAT(SUM(MEN_A_A),'/',SUM(MEN_A_R)) AS MEN_A,"
@@ -230,7 +230,7 @@ public class AssetDashboardService {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				CCECapacityBean bean=new CCECapacityBean();
-                                bean.setX_CCE_CAPACITY_LOCATION(rs.getString("LOCATION"));
+                                bean.setX_CCE_CAPACITY_LOCATION(rs.getString("SUPPLY_CHAIN_LEVEL"));
                                 bean.setX_CCE_CAPACITY_STATE(rs.getString("STATE"));
                                 bean.setX_CCE_CAPACITY_LGA(rs.getString("LGA"));
                                 bean.setX_CCE_CAPACITY_WARD(rs.getString("WARD"));
