@@ -99,11 +99,12 @@ public class LandingPageController {
 
         @FXML
         public void loadHomePage() throws SQLException {
-            
-				DatabaseOperation.CONNECT_TO_SERVER = false;
 		System.out.println("RootLayout loadHomePage Called..");
 		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/HomePage.fxml"));
 		try {
+                        DatabaseOperation.CONNECT_TO_SERVER=false;
+                        DatabaseOperation.getDbo().closeConnection();
+                        DatabaseOperation.setDbo(null);
 			BorderPane homePage = (BorderPane) loader.load();
 			homePage.setUserData(loader);
 			homePage.getStylesheets().add(RootLayoutController.class.getResource("/com/chai/inv/view/DisabledComboBoxOpacity.css")
@@ -126,11 +127,12 @@ public class LandingPageController {
 	
         @FXML 
                 public void handleAssetManagementAction() {
-                    
-				DatabaseOperation.CONNECT_TO_SERVER = true;
 		System.out.println("Asset Management selected..");
 		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/AssetManagementPage.fxml"));
 		try {
+                        DatabaseOperation.CONNECT_TO_SERVER=true;
+                        DatabaseOperation.getDbo().closeConnection();
+                        DatabaseOperation.setDbo(null);
                         BorderPane userOverviewPage = (BorderPane) loader.load();
 			userOverviewPage.setUserData(loader);
 			new SetTransitionOnScreen().setTransition(mainBorderPane,"parrallelFadeTranslate", movePageDirection);

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.AssetManagementPageController">
-   <center>
+   <top>
 
       <GridPane alignment="CENTER" hgap="15.0" layoutX="85.0" layoutY="100.0" fx:id="x_GRID_PANE">
          <columnConstraints>
@@ -25,23 +25,24 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAssetsPopupBtn" prefHeight="135.0" prefWidth="141.0" text="Assets" GridPane.halignment="RIGHT" fx:id="x_ASSETS_BTN">
+            <Label prefHeight="135.0" prefWidth="141.0" />
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAssetsPopupBtn" prefHeight="135.0" prefWidth="141.0" text="Assets" GridPane.halignment="CENTER" GridPane.rowIndex="1" fx:id="x_ASSETS_BTN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleWasteManagementPopup" prefHeight="135.0" prefWidth="141.0" text="Waste Management" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1" fx:id="x_WASTE_MANAGE_BTN">
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleWasteManagementPopup" prefHeight="135.0" prefWidth="141.0" text="Waste Management" visible="false" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" fx:id="x_WASTE_MANAGE_BTN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAssetDashboardsPopupBtn" prefHeight="135.0" prefWidth="141.0" text="Dashboards" GridPane.columnIndex="2" GridPane.halignment="LEFT" fx:id="x_DASHBOARDS_BTN">
+            <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleAssetDashboardsPopupBtn" prefHeight="135.0" prefWidth="141.0" text="Dashboards" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" fx:id="x_DASHBOARDS_BTN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleAssetRegisterBtn" prefHeight="135.0" prefWidth="141.0" text="List of CCE" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="x_REGISTER_ASSET_BTN" />
+            <Button mnemonicParsing="false" onAction="#handleAssetRegisterBtn" prefHeight="135.0" prefWidth="141.0" text="List of CCE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" fx:id="x_REGISTER_ASSET_BTN" />
          </children>
       </GridPane>
-   </center>
+   </top>
 </BorderPane>

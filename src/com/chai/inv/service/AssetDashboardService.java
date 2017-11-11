@@ -224,7 +224,9 @@ public class AssetDashboardService {
 		
 		try {
 			if (dao == null || dao.getConnection() == null || dao.getConnection().isClosed()) {
+                            System.out.println("Reached here for CCECAP DASH "+DatabaseOperation.CONNECT_TO_SERVER);
 				dao = DatabaseOperation.getDbo();
+                            System.out.println("Reached here for CCECAP DASH 22 "+DatabaseOperation.CONNECT_TO_SERVER);
 			}
 			pstmt = dao.getPreparedStatement(x_QUERY);
 			rs = pstmt.executeQuery();

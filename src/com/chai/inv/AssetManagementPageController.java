@@ -156,7 +156,6 @@ public class AssetManagementPageController {
 				System.out.println("minborderpane is null in asset dashboard submenu controller");
 				mainBorderPane = new BorderPane();
 			}
-                        popupContent.setPrefSize(300, 300);
                         popupContent.setUserData(loader);
                         AssetDashboardPopupController controller = loader.getController();
                         controller.setRootLayoutController(rootLayoutController);
@@ -170,7 +169,7 @@ public class AssetManagementPageController {
 			controller.setPopupObject(popup);
 			popup.setPrefSize(200, 200);
 			popup.setCornerRadius(25);
-			popup.setArrowLocation(ArrowLocation.RIGHT_CENTER);
+			popup.setArrowLocation(ArrowLocation.TOP_CENTER);
 			popup.setContentNode(popupContent);
 			popup.setHideOnEscape(true);
 			popup.setDetachable(false);
