@@ -16,7 +16,7 @@
               <menus>
                   <Menu mnemonicParsing="false" text="Home">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#handleHomeMenuAction" text="Home" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadLandingPage" text="NLMIS/AMS Switch" />
                         <MenuItem mnemonicParsing="false" onAction="#handleLogoutAction" text="Logout" />
                         <MenuItem mnemonicParsing="false" onAction="#handleExitMenuAction" text="Exit" />
                     </items>

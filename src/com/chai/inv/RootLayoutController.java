@@ -125,6 +125,7 @@ public class RootLayoutController {
 	private LandingPageController landingPageController;
 
 	private HomePageController homePageController;
+        private AssetManagementPageController assetManagementPageController;
 	private ArrayList<String> list = new ArrayList<>();
 
 	public HomePageController getHomePageController() {
@@ -133,6 +134,15 @@ public class RootLayoutController {
 	public void setHomePageController(HomePageController homePageController) {
 		this.homePageController = homePageController;
 	}
+
+        public AssetManagementPageController getAssetManagementPageController() {
+            return assetManagementPageController;
+        }
+
+        public void setAssetManagementPageController(AssetManagementPageController assetManagementPageController) {
+            this.assetManagementPageController = assetManagementPageController;
+        }
+        
 	public void setVisible() {
 		x_VBOX.getChildren().remove(0);
 		x_GRID_PANE.getChildren().remove(0);
@@ -331,7 +341,7 @@ public class RootLayoutController {
 		}
         }
         
-        	public void loadLandingPage(LabelValueBean role, boolean calledFromHomeMenuAction) throws SQLException {
+        	public void loadLandingPage() throws SQLException {
 		System.out.println("RootLayout loadLandingPage Called..");
 		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/LandingPage.fxml"));
 		try {
@@ -494,6 +504,30 @@ public class RootLayoutController {
 			controller.setPrimaryStage(primaryStage);
 		} catch (Exception ex) {
 			System.out.println("Error occured while loading Home Page layout.. "+ ex.getMessage());
+			ex.printStackTrace();
+		}
+	}
+        
+        public void loadAssetManagementPage(LabelValueBean role, boolean calledFromHomeMenuAction) throws SQLException {
+		System.out.println("RootLayout Asset Management Homepage Called..");
+		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/AssetManagementPage.fxml"));
+		try {
+			BorderPane homePage = (BorderPane) loader.load();
+			homePage.setUserData(loader);
+			homePage.getStylesheets().add(RootLayoutController.class.getResource("/com/chai/inv/view/DisabledComboBoxOpacity.css")
+							.toExternalForm());
+			new SetTransitionOnScreen().setTransition(mainBorderPane,"parrallelFadeScale", null);
+			mainBorderPane.setCenter(homePage);
+			AssetManagementPageController controller = loader.getController();
+			this.assetManagementPageController = controller;
+			controller.setRootLayoutController(this);
+			controller.setRole(role, true);
+			controller.setMainBorderPane(mainBorderPane);
+			controller.setMainApp(mainApp);
+			controller.setUserBean(userBean);
+			controller.setPrimaryStage(primaryStage);
+		} catch (Exception ex) {
+			System.out.println("Error occured while loading Asset Management Page layout.. "+ ex.getMessage());
 			ex.printStackTrace();
 		}
 	}
@@ -719,7 +753,15 @@ public class RootLayoutController {
 	@FXML
 	public void handleHomeMenuAction() {
 		try {
-			loadLandingPage(role, true);
+                    if(MainApp.NLMIS_OR_AMS.equals("NLMIS")){
+                        loadHomePage(role, true);
+                    }
+                    else if(MainApp.NLMIS_OR_AMS.equals("AMS")){
+                        loadAssetManagementPage(role, true);
+                    }
+                    else{
+                        loadLandingPage();
+                    }
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

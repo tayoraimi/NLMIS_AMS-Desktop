@@ -105,6 +105,7 @@ public class LandingPageController {
                         DatabaseOperation.CONNECT_TO_SERVER=false;
                         DatabaseOperation.getDbo().closeConnection();
                         DatabaseOperation.setDbo(null);
+                        MainApp.NLMIS_OR_AMS = "NLMIS";
 			BorderPane homePage = (BorderPane) loader.load();
 			homePage.setUserData(loader);
 			homePage.getStylesheets().add(RootLayoutController.class.getResource("/com/chai/inv/view/DisabledComboBoxOpacity.css")
@@ -133,6 +134,7 @@ public class LandingPageController {
                         DatabaseOperation.CONNECT_TO_SERVER=true;
                         DatabaseOperation.getDbo().closeConnection();
                         DatabaseOperation.setDbo(null);
+                        MainApp.NLMIS_OR_AMS = "AMS";
                         BorderPane userOverviewPage = (BorderPane) loader.load();
 			userOverviewPage.setUserData(loader);
 			new SetTransitionOnScreen().setTransition(mainBorderPane,"parrallelFadeTranslate", movePageDirection);

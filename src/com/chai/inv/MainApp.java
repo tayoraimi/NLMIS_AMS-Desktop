@@ -50,6 +50,7 @@ public class MainApp extends Application {
 	public static UserBean userBean;
 	public static String userId;
 	private static String USER_WAREHOUSE_ID;
+	public static String NLMIS_OR_AMS;
 	public static boolean logoutFlag = true;
 	private UserWarehouseLabelValue userWarehouseLabelValue;
 	public static LabelValueBean warehouseLvb = new LabelValueBean();
@@ -260,7 +261,7 @@ public class MainApp extends Application {
 			rootLayoutController.setUserBean(userBean);
 			rootLayoutController.setMainBorderPane(borderLayout);
 			rootLayoutController.setPrimaryStage(primaryStage);
-			rootLayoutController.loadLandingPage(role, false);
+			rootLayoutController.loadLandingPage();
 			userWarehouseLabelValue = new UserWarehouseLabelValue(userBean.getX_FIRST_NAME()+" "+userBean.getX_LAST_NAME(),
 					userBean.getX_USER_WAREHOUSE_NAME(),
 					userBean.getX_USER_WAREHOUSE_ID());
