@@ -378,13 +378,13 @@ public class CCEEditDialogController {
                         if (!(cceBean.getX_CCE_STATUS()== null)) {
                                 x_CCE_STATUS.setItems(cceService.getDropdownList("StatusList"));
                                 x_CCE_STATUS.setValue(new LabelValueBean(cceBean.getX_CCE_STATUS(),null));
+                                handleOnStatusChange();
                         }
 
-                        if (cceBean.getX_CCE_STATUS()!= null){
-                            System.out.println("cceBean.Status is "+cceBean.getX_CCE_STATUS());
-                            handleOnStatusChange();
-
-                        }
+//                        if (cceBean.getX_CCE_STATUS()!= null){
+//                            System.out.println("cceBean.Status is "+cceBean.getX_CCE_STATUS());
+//
+//                        }
                         if (!(cceBean.getX_CCE_DECISION()== null)) {
                                 x_CCE_DECISION.setItems(cceService.getDropdownList("DecisionList",cceBean.getX_CCE_STATUS()));
                                 x_CCE_DECISION.setValue(new LabelValueBean(cceBean.getX_CCE_DECISION(),null));
@@ -425,10 +425,10 @@ public class CCEEditDialogController {
             
             x_CCE_DECISION.setValue(new LabelValueBean("",""));
             if (x_CCE_STATUS.getValue().getLabel().equals("Not Functional")) {
-                        x_CCE_DATE_NF_F.setText("Date Not Functional");
-                        x_CCE_NF_DATE.setPromptText("Date Not Functional");
-//                        x_CCE_NF_DATE.setDisable(false);
-                        x_CCE_NF_DATE.setValue(LocalDate.now());
+//                        x_CCE_DATE_NF_F.setText("Date Not Functional");
+//                        x_CCE_NF_DATE.setPromptText("Date Not Functional");
+                        x_CCE_NF_DATE.setDisable(false);
+//                        x_CCE_NF_DATE.setValue(LocalDate.now());
                         x_CCE_ACQUISITION1.setDisable(false);
                         x_CCE_ACQUISITION2.setDisable(false);
                         if(!(cceBean.getX_CCE_DATE_NF()==null)){
@@ -442,13 +442,15 @@ public class CCEEditDialogController {
                         
             }
             else{
-                x_CCE_DATE_NF_F.setText("Date Functional");
-                x_CCE_NF_DATE.setPromptText("Date Functional");
+//                x_CCE_DATE_NF_F.setText("Date Functional");
+//                x_CCE_NF_DATE.setPromptText("Date Functional");
+                x_CCE_NF_DATE.setDisable(true);
                 x_CCE_ACQUISITION1.setDisable(false);
                 x_CCE_ACQUISITION2.setDisable(false);
 //                x_CCE_NF_DATE.setDisable(true);
-                x_CCE_NF_DATE.setValue(LocalDate.now());
+//                x_CCE_NF_DATE.setValue(LocalDate.now());
                 if(x_CCE_STATUS.getValue().getLabel().equals("Not Installed")){
+                    x_CCE_NF_DATE.setDisable(true);
                     x_CCE_ACQUISITION1.setValue(null);
                     x_CCE_ACQUISITION2.setValue(null);
                     x_CCE_ACQUISITION1.setDisable(true);
@@ -756,7 +758,7 @@ public class CCEEditDialogController {
 //			}
 //			if (x_CCE_WARD.getValue() == null
 //                                || x_CCE_WARD.getValue().toString().length() == 0) {
-                            System.out.println("Here is the Ward 2 "+x_CCE_WARD.getValue().toString()+" "+x_CCE_LOCATION.getValue().getLabel());
+//                            System.out.println("Here is the Ward 2 "+x_CCE_WARD.getValue().toString()+" "+x_CCE_LOCATION.getValue().getLabel());
 //				errorMessage += "No Ward selected!\n";
 //			}
 //			if (x_CCE_LOCATION.getValue()==null
@@ -773,10 +775,8 @@ public class CCEEditDialogController {
 //				errorMessage += "No CCE Designation selected!\n";
 //			}
                         
-                        if ((x_CCE_FACILITY_NAME.getValue().toString() != null
-					&& x_CCE_LOCATION.getValue().getLabel().equals("LGA"))
-                                        || (x_CCE_WARD.getValue().toString()==null
-                                            && x_CCE_LOCATION.getValue().getLabel().equals("HF")) ){
+                        if (x_CCE_WARD.getValue()==null
+                                            && x_CCE_LOCATION.getValue().getLabel().equals("HF")){
 				errorMessage += "Select the right Ward or Facility\n";
                         }
                         if (x_CCE_CATEGORY.getValue()==null
@@ -821,7 +821,7 @@ public class CCEEditDialogController {
                             int countYearsInstalled = CalendarUtil.getCurrentYear()-Integer.parseInt(x_CCE_ACQUISITION1.getValue());
                             
                             System.out.println("Age of CCE : "+countYearsInstalled+" ,Decision is : "+x_CCE_DECISION.getValue());
-                            if(countYearsInstalled>10 && !x_CCE_DECISION.getValue().equals("Obsolete")){
+                            if((countYearsInstalled>10 && !x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))||(countYearsInstalled<10 && x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))){
                                 errorMessage += "Decision and Year of Installation does not agree!\n";
                             }
                         }

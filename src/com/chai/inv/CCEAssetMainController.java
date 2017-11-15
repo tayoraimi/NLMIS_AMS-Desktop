@@ -288,6 +288,45 @@ public class CCEAssetMainController {
 			return false;
 		}
 	}
+        
+
+	@FXML
+	public void handleExportAction() {
+		System.out.println("Hey We are in User's Export Action Handler");
+		ObservableList<CCEAssetBean> cceAssetExportData = cceAssetTable.getItems();
+		String csv = cceAssetModelColumn.getText() + "," + cceAssetVolPosColumn.getText()
+				+ "," + cceAssetExpectedLifeColumn.getText() + "," + cceAssetCompanyColumn.getText()
+				+ "," + cceAssetCategoryColumn.getText() + "," + cceAssetRefrigerantColumn.getText()
+				+ "," + cceAssetVolNegColumn.getText() + ","
+				+ cceAssetTypeColumn.getText() + "," + cceAssetEnergyColumn.getText() + ","
+				+ cceAssetDesignationColumn.getText() + ","+ cceAssetPriceColumn.getText() + ",";
+		for (CCEAssetBean u : cceAssetExportData) {
+			csv += "\n" + u.getX_CCE_ASSET_MODEL() + "," + u.getX_CCE_ASSET_VOL_POS() + ","
+					+ u.getX_CCE_ASSET_EXPECTED_LIFE() + "," + u.getX_CCE_ASSET_COMPANY() + ","
+					+ u.getX_CCE_ASSET_CATEGORY() + "," + u.getX_CCE_ASSET_REFRIGERANT() + ","
+					+ u.getX_CCE_ASSET_VOL_NEG() + "," + u.getX_CCE_ASSET_TYPE() + ","
+					+ u.getX_CCE_ASSET_ENERGY() + "," + u.getX_CCE_ASSET_DESIGNATION() + ","
+					+ u.getX_CCE_ASSET_PRICE();
+		}
+		csv = csv.replaceAll("null", "");
+		FileChooser fileChooser = new FileChooser();
+		// Set extension filter
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+				"CSV files (*.csv)", "*.csv");
+		fileChooser.getExtensionFilters().add(extFilter);
+		// Show save file dialog
+		fileChooser.setInitialFileName("CCE List");
+		File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+		if (file != null) {
+			// Make sure it has the correct extension
+			if (!file.getPath().endsWith(".xml")
+					&& !file.getPath().endsWith(".xlsx")
+					&& !file.getPath().endsWith(".csv")) {
+				file = new File(file.getPath() + ".txt");
+			}
+			mainApp.saveDataToFile(file, csv);
+		}
+	}
 
 
         

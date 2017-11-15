@@ -39,7 +39,16 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshCCEAssetTable" text="Refresh">
+            <Button mnemonicParsing="false" onAction="#handleExportAction" text="Export">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../resources/icons/Export_load_upload.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="306.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshCCEAssetTable" text="Refresh" visible="false">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
