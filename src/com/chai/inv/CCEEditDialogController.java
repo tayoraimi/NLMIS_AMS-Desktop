@@ -25,6 +25,7 @@ import com.chai.inv.util.CalendarUtil;
 import com.chai.inv.util.SelectKeyComboBoxListener;
 import java.text.DateFormatSymbols;
 import java.time.LocalDate;
+import javafx.collections.ObservableList;
 
 public class CCEEditDialogController {
         
@@ -83,6 +84,7 @@ public class CCEEditDialogController {
 	private UserBean userBean;
 	private LabelValueBean role;
         private int nfDuration = 0;
+        private int expectedWorkingLife=0;
         private String status;
 
 	public void setUserBean(UserBean userBean) {
@@ -191,10 +193,10 @@ public class CCEEditDialogController {
                                 //x_CCE_ACQUISITION1.getItems().addAll("2016","2015","2014","2013","2012","2011","2010","2009","2008","2007","2006","2005","2004","2003","2002","2001","2000","1999","1998","1997","1996");
                                 x_CCE_ACQUISITION1.setItems(CalendarUtil.get20Years());
                                 //x_CCE_DESIGNATION.setItems(cceService.getDropdownList("DesignationList",null));
-                                x_CCE_MAKE.setItems(cceService.getDropdownList("MakeList",null));
+//                                x_CCE_MAKE.setItems(cceService.getDropdownList("MakeList",null));
                                 x_CCE_MODEL.setItems(cceService.getDropdownList("ModelList",null));
-                                x_CCE_TYPE.setItems(cceService.getDropdownList("TypeList",null,null));
-                                x_CCE_CATEGORY.setItems(cceService.getDropdownList("CategoryList",null,null,null));
+//                                x_CCE_TYPE.setItems(cceService.getDropdownList("TypeList",null,null));
+//                                x_CCE_CATEGORY.setItems(cceService.getDropdownList("CategoryList",null,null,null));
                                 x_CCE_STATUS.setItems(cceService.getDropdownList("StatusList",null));
                                 x_CCE_DECISION.setItems(cceService.getDropdownList("DecisionList",null));
                                 x_CCE_SRC.setItems(cceService.getDropdownList("SourceList"));
@@ -355,21 +357,21 @@ public class CCEEditDialogController {
 //			x_CCE_DESIGNATION.setValue(new LabelValueBean(cceBean.getX_CCE_DESIGNATION(),null));
 //                        }
                         if (!(cceBean.getX_CCE_MAKE()== null)) {
-                                x_CCE_MAKE.setItems(cceService.getDropdownList("MakeList"));
+//                                x_CCE_MAKE.setItems(cceService.getDropdownList("MakeList"));
                                 x_CCE_MAKE.setValue(new LabelValueBean(cceBean.getX_CCE_MAKE(),null));
                         }
                         if (!(cceBean.getX_CCE_MODEL() == null)) {
-                                x_CCE_MODEL.setItems(cceService.getDropdownList("ModelList",cceBean.getX_CCE_MAKE()));
+                                x_CCE_MODEL.setItems(cceService.getDropdownList("ModelList",null));
                                 x_CCE_MODEL.setValue(new LabelValueBean(cceBean.getX_CCE_MODEL(),null));
                         }
                         if (!(cceBean.getX_CCE_TYPE() == null)) {
-                                x_CCE_TYPE.setItems(cceService.getDropdownList("TypeList",
-                                        cceBean.getX_CCE_MAKE(),cceBean.getX_CCE_MODEL()));
+//                                x_CCE_TYPE.setItems(cceService.getDropdownList("TypeList",
+//                                        cceBean.getX_CCE_MAKE(),cceBean.getX_CCE_MODEL()));
                                 x_CCE_TYPE.setValue(new LabelValueBean(cceBean.getX_CCE_TYPE(),null));
                         }
                         if (!(cceBean.getX_CCE_CATEGORY()== null)) {
-                                x_CCE_CATEGORY.setItems(cceService.getDropdownList("CategoryList",
-                                        cceBean.getX_CCE_MAKE(),cceBean.getX_CCE_MODEL(),cceBean.getX_CCE_TYPE()));
+//                                x_CCE_CATEGORY.setItems(cceService.getDropdownList("CategoryList",
+//                                        cceBean.getX_CCE_MAKE(),cceBean.getX_CCE_MODEL(),cceBean.getX_CCE_TYPE()));
                                 x_CCE_CATEGORY.setValue(new LabelValueBean(cceBean.getX_CCE_CATEGORY(),null));
                         }
                         if (!(cceBean.getX_CCE_SERIAL_NO() == null)) {
@@ -394,17 +396,20 @@ public class CCEEditDialogController {
                         }
                         x_CCE_ACQUISITION1.setItems(CalendarUtil.get20Years());
                         if (!(cceBean.getX_CCE_YEAR_OF_ACQUISITION()== null)) {
-                            System.out.println("The cce Year of Acquisition is "+cceBean.getX_CCE_YEAR_OF_ACQUISITION());
+//                            System.out.println("The cce Year of Acquisition is "+cceBean.getX_CCE_YEAR_OF_ACQUISITION());
                             x_CCE_ACQUISITION1.setValue(cceBean.getX_CCE_YEAR_OF_ACQUISITION());
                         }
                         x_CCE_ACQUISITION2.setItems(CalendarUtil.getMonthAndNumber("short_month_inyear"));
                         if (!(cceBean.getX_CCE_MONTH_OF_ACQUISITION()== null)) {
-                            System.out.println("The cce Month of Acquisition is "+cceBean.getX_CCE_MONTH_OF_ACQUISITION());
+//                            System.out.println("The cce Month of Acquisition is "+cceBean.getX_CCE_MONTH_OF_ACQUISITION());
                             x_CCE_ACQUISITION2.setValue(new LabelValueBean(new DateFormatSymbols().getShortMonths()[Integer.parseInt(cceBean.getX_CCE_MONTH_OF_ACQUISITION())],cceBean.getX_CCE_MONTH_OF_ACQUISITION()));
                         }
                         if (!(cceBean.getX_CCE_SOURCE()== null)) {
                             x_CCE_SRC.setValue(new LabelValueBean(cceBean.getX_CCE_SOURCE(),null));
                             x_CCE_SRC.setItems(cceService.getDropdownList("SourceList"));
+                        }
+                        if (!(cceBean.getX_CCE_EXPECTED_WORKING_LIFE()== null)) {
+                             expectedWorkingLife = Integer.parseInt(cceBean.getX_CCE_EXPECTED_WORKING_LIFE());
                         }
 
                 
@@ -551,8 +556,8 @@ public class CCEEditDialogController {
                         x_CCE_MODEL.setPromptText("Model"); 
                         x_CCE_MODEL.setDisable(false);     
 			//x_CCE_MODEL.getItems().addAll(new LabelValueBean("", null));
-			x_CCE_MODEL.setItems(cceService.getDropdownList("ModelList",
-					x_CCE_MAKE.getValue().getLabel()));
+//			x_CCE_MODEL.setItems(cceService.getDropdownList("ModelList",
+//					x_CCE_MAKE.getValue().getLabel()));
 			new SelectKeyComboBoxListener(x_CCE_MODEL);
                         x_CCE_ACQUISITION1.setValue(null);
                         x_CCE_ACQUISITION2.setValue(null);
@@ -567,14 +572,18 @@ public class CCEEditDialogController {
         @FXML
 	private void handleOnModelChange() {
             System.out.println("**In handleOnModelChange");
+            LabelValueBean detail;
 		if (x_CCE_MODEL.getValue() != null 
                         && !x_CCE_MODEL.getValue().getLabel().equals("")) {
                         x_CCE_ACQUISITION1.setDisable(false);
                         x_CCE_ACQUISITION2.setDisable(false);
                         x_CCE_DECISION.setDisable(false);
+                        detail = cceService.getDropdownList("DetailList", x_CCE_MODEL.getValue().getLabel()).get(0);
 //                        x_CCE_STATUS.setDisable(false);
-			x_CCE_TYPE.setItems(cceService.getDropdownList("TypeList",
-					x_CCE_MAKE.getValue().getLabel(),x_CCE_MODEL.getValue().getLabel()));
+                        x_CCE_MAKE.setValue(new LabelValueBean(detail.getLabel(),null));
+			x_CCE_TYPE.setValue(new LabelValueBean(detail.getExtra1(),null));
+                        expectedWorkingLife = Integer.parseInt(detail.getExtra());
+                        x_CCE_CATEGORY.setValue(new LabelValueBean(detail.getValue(),null));     
                         x_CCE_SERIAL.setDisable(false);
                         x_CCE_SRC.setDisable(false);
 			new SelectKeyComboBoxListener(x_CCE_TYPE);
@@ -813,7 +822,7 @@ public class CCEEditDialogController {
                         if (x_CCE_ACQUISITION1.getValue()==null
                                 || x_CCE_ACQUISITION1.getValue().length() == 0) {
                             if(!x_CCE_ACQUISITION1.isDisabled()){
-                                errorMessage += "No Year of Acquisition selected!\n";
+                                errorMessage += "No Year of Installation selected!\n";
                             }
 				
 			}
@@ -821,14 +830,14 @@ public class CCEEditDialogController {
                             int countYearsInstalled = CalendarUtil.getCurrentYear()-Integer.parseInt(x_CCE_ACQUISITION1.getValue());
                             
                             System.out.println("Age of CCE : "+countYearsInstalled+" ,Decision is : "+x_CCE_DECISION.getValue());
-                            if((countYearsInstalled>10 && !x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))||(countYearsInstalled<10 && x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))){
+                            if((countYearsInstalled>expectedWorkingLife && !x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))||(countYearsInstalled<expectedWorkingLife && x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))){
                                 errorMessage += "Decision and Year of Installation does not agree!\n";
                             }
                         }
                         if (x_CCE_ACQUISITION2.getValue()==null
                                 || x_CCE_ACQUISITION2.getValue().toString().length() == 0) {
                             if(!x_CCE_ACQUISITION2.isDisabled()){
-                                errorMessage += "No Month of Acquisition selected!\n";
+                                errorMessage += "No Month of Installation selected!\n";
                             }
 				
 			}

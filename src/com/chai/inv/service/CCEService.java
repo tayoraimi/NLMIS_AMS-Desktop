@@ -109,14 +109,17 @@ public class CCEService {
 			x_QUERY = " SELECT CCE_ID, DESIGNATION "
 					+ "   FROM CCE_LIST GROUP BY DESIGNATION ASC ";
 			break;
+		case "DetailList":
+			x_QUERY =  " SELECT CATEGORY, COMPANY, EXPECTED_WORKING_LIFE, TYPE"
+                                + " FROM CCE_LIST WHERE MODEL = '"+action[1]+"' ORDER BY CCE_ID ASC ";
+			break;
 		case "MakeList":
 			x_QUERY =  " SELECT CCE_ID, COMPANY "
 					+ "   FROM CCE_LIST GROUP BY COMPANY ASC ";
 			break;
 		case "ModelList":
 			x_QUERY =  " SELECT CCE_ID, MODEL "
-					+ "   FROM CCE_LIST WHERE COMPANY = '"
-                                        + action[1]+"' GROUP BY MODEL ASC ";
+					+ "   FROM CCE_LIST ORDER BY CCE_ID ASC ";
 			break;
 		case "TypeList":
 			x_QUERY =  " SELECT CCE_ID, TYPE "

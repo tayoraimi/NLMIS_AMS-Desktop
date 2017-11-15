@@ -201,25 +201,32 @@
             </ComboBox>
             <ComboBox onAction="#onYearChange" prefHeight="27.0" prefWidth="91.0" promptText="Year" GridPane.rowIndex="15" fx:id="x_CCE_ACQUISITION1" />
             <ComboBox prefHeight="27.0" prefWidth="92.0" promptText="Month" GridPane.rowIndex="16" fx:id="x_CCE_ACQUISITION2" />
-            <Label text="Company/Make" GridPane.rowIndex="6">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <ComboBox onAction="#handleOnMakeChange" prefHeight="31.0" prefWidth="192.0" promptText="Company/Make" visibleRowCount="6" GridPane.rowIndex="7" fx:id="x_CCE_MAKE" />
-            <Label text="Model" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Label text="Model" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
-            <ComboBox onAction="#handleOnModelChange" prefHeight="31.0" prefWidth="192.0" promptText="Model" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x_CCE_MODEL">
+            <ComboBox onAction="#handleOnModelChange" prefHeight="31.0" prefWidth="192.0" promptText="Model" GridPane.rowIndex="7" fx:id="x_CCE_MODEL">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox onAction="#handleOnMakeChange" prefHeight="31.0" prefWidth="192.0" promptText="Company/Make" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x_CCE_MAKE">
                <GridPane.margin>
                   <Insets left="18.0" />
                </GridPane.margin>
             </ComboBox>
+            <Label text="Company/Make" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="18.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
    </children>

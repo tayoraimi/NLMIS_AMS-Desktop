@@ -34,6 +34,7 @@ public class CCEBean {
         private String x_CCE_ENERGY;
         private String x_CCE_SOURCE;
         private String x_CCE_MAKE;
+        private String x_CCE_EXPECTED_WORKING_LIFE;
 
     
         private String x_CCE_YEAR_OF_ACQUISITION;
@@ -300,6 +301,15 @@ public class CCEBean {
         public void setX_CCE_MONTHYEAR_OF_ACQUISITION(String x_CCE_MONTHYEAR_OF_ACQUISITION) {
             this.x_CCE_MONTHYEAR_OF_ACQUISITION = x_CCE_MONTHYEAR_OF_ACQUISITION;
         }
+
+        public String getX_CCE_EXPECTED_WORKING_LIFE() {
+            return x_CCE_EXPECTED_WORKING_LIFE;
+        }
+
+        public void setX_CCE_EXPECTED_WORKING_LIFE(String x_CCE_EXPECTED_WORKING_LIFE) {
+            this.x_CCE_EXPECTED_WORKING_LIFE = x_CCE_EXPECTED_WORKING_LIFE;
+        }
+        
         
 
 
