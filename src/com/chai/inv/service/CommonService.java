@@ -19,7 +19,9 @@ public class CommonService {
 	public String getVersionNumber(){
 		String appVersionNumber;
 		try {
-			DatabaseOperation.CONNECT_TO_SERVER=false;
+			DatabaseOperation.CONNECT_TO_SERVER=true;
+                        DatabaseOperation.getDbo().closeConnection();
+                        DatabaseOperation.setDbo(null);
 			ResultSet rs = DatabaseOperation.getDbo().getConnection()
 			.prepareStatement("SELECT APPLICATION_VERSION FROM APPLICATION_VERSION_CONTROL").executeQuery();
 			if(rs.next()){

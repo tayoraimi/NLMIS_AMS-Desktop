@@ -837,8 +837,8 @@ public class RootLayoutController {
 			String applicationFor=p.getProperty("applicationFor");
 			Dialogs.create()
 			.owner(getPrimaryStage())
-			.title("About N-LIMS")
-			.masthead("N-LIMS | Version: "+new CommonService().getVersionNumber()+" | "+applicationFor)
+			.title("About N-LIMS/AMS")
+			.masthead("N-LIMS/AMS | Version: "+new CommonService().getVersionNumber()+" | "+applicationFor)
 			.message("N-LIMS/AMS: Desktop application developed using JavaFx 8 Technology, by Temitayo Consulting, Lagos, Nigeria")
 			.showInformation();
 		} catch (IOException e) {
