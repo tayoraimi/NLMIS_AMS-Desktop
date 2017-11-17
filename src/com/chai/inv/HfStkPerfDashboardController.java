@@ -347,9 +347,10 @@ public class HfStkPerfDashboardController {
 									break;
 									case "0xffc000ff" : color = HSSFColor.YELLOW.index;
 									break;
-									case "0x8e84fbff" : color=HSSFColor.BLUE.index;
+									case "0x9370dbff" : color=HSSFColor.BLUE.index;
 									break;
 									}
+//                                                                        System.out.println("colour blue "+paint.toString());
 									cellStyle.setFillForegroundColor((short)color);
 									cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 				        			cell.setCellStyle(cellStyle);
@@ -403,9 +404,9 @@ public class HfStkPerfDashboardController {
 				|| MainApp.getUserRole().getLabel().equals("SIO")
 				|| MainApp.getUserRole().getLabel().equals("SIFP"))
 				&& MainApp.selectedLGA==null){
-			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("LGA Stock Summary");
+			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("LGA Stock Dashboard");
 		}else{
-			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("HF Stock Summary Sheet");
+			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("Facility Stock Dashboard");
 		}
 	}
 	public UserBean getUserBean() {

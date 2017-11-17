@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<BorderPane style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-radius: none;" styleClass="popupDataEntyAnchor" stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.DashboardPopupController">
+<BorderPane style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-border-radius: none;" styleClass="popupDataEntyAnchor" stylesheets="@DisabledComboBoxOpacity.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.DashboardPopupController">
    <center>
       <GridPane hgap="10.0" vgap="10.0" fx:id="x_GRID_PANE">
          <columnConstraints>
@@ -33,7 +33,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button contentDisplay="TOP" layoutX="78.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHfStkPerfDashboard" prefHeight="115.0" prefWidth="164.0" styleClass="dark-blue-button" text="HF Stock Summary Sheet" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" fx:id="x_HF_REPORT_DASHBORD_BTN">
+            <Button contentDisplay="TOP" layoutX="78.0" layoutY="17.0" mnemonicParsing="false" onAction="#handleHfStkPerfDashboard" prefHeight="115.0" prefWidth="164.0" styleClass="dark-blue-button" text="Facility Stock Dashboard" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" fx:id="x_HF_REPORT_DASHBORD_BTN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
