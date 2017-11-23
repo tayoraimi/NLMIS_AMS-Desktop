@@ -72,6 +72,8 @@ public class CCEMainController {
         private TableColumn<CCEBean, String> cceMakeColumn;
         @FXML
         private TableColumn<CCEBean, String> cceYearOfAcquisitionColumn;
+        @FXML
+        private TableColumn<CCEBean, String> cceExpectedWorkingLifeColumn;
 
 
 	@FXML
@@ -180,6 +182,7 @@ public class CCEMainController {
                 cceSourceColumn.setCellValueFactory(new PropertyValueFactory<CCEBean, String>("x_CCE_SOURCE"));
                 cceMakeColumn.setCellValueFactory(new PropertyValueFactory<CCEBean, String>("x_CCE_MAKE"));
                 cceYearOfAcquisitionColumn.setCellValueFactory(new PropertyValueFactory<CCEBean, String>("x_CCE_MONTHYEAR_OF_ACQUISITION"));
+                cceExpectedWorkingLifeColumn.setCellValueFactory(new PropertyValueFactory<CCEBean, String>("x_CCE_EXPECTED_WORKING_LIFE"));
                 
 		cceTable
 				.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);

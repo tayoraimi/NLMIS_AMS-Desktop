@@ -237,6 +237,7 @@ public class CCEService {
                                 + "LOCATION, "
                                 + "DEFAULT_ORDERING_WAREHOUSE_ID, "
                                 + "CCE_ID, "
+                                + "(SELECT EXPECTED_WORKING_LIFE FROM CCE_LIST cl WHERE cl.`CCE_ID` = ve3.`CCE_ID`) AS EXPECTED_WORKING_LIFE, "
                                 + "DESIGNATION, "
                                 + "MAKE, "
                                 + "MODEL, "
@@ -252,7 +253,7 @@ public class CCEService {
                                 + "ENERGY, "
                                 //+ "DATE_FORMAT(YEAR_OF_ACQUISITION, '%M, %Y') YEAR_OF_ACQUISITION, "
                                 + "YEAR_OF_ACQUISITION, "
-                                + "SOURCE_OF_CCE FROM VIEW_E003 "+ WHERE_CONDITION);
+                                + "SOURCE_OF_CCE FROM VIEW_E003 ve3 "+ WHERE_CONDITION);
 		try {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -292,6 +293,7 @@ public class CCEService {
                                 cceBean.setX_CCE_MONTH_OF_ACQUISITION(splittedMonthYear[0]);
                                 cceBean.setX_CCE_YEAR_OF_ACQUISITION(splittedMonthYear[1]);
                                 cceBean.setX_CCE_MONTHYEAR_OF_ACQUISITION(rs.getString("YEAR_OF_ACQUISITION"));
+                                cceBean.setX_CCE_EXPECTED_WORKING_LIFE(rs.getString("EXPECTED_WORKING_LIFE"));
 				
 				
 				cceData.add(cceBean);

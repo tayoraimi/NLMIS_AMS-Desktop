@@ -78,6 +78,7 @@
             <TableColumn fx:id="cceEnergyColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Energy" visible="false" />
               <TableColumn fx:id="cceYearOfAcquisitionColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Year of Acquisition" />
               <TableColumn fx:id="cceSourceColumn" prefWidth="105.0" style="-fx-alignment: center;" text="Source of CCE" />
+            <TableColumn fx:id="cceExpectedWorkingLifeColumn" prefWidth="105.0" style="-fx-alignment: center;" text="Expected Working Life" visible="false" />
            </columns>
         </TableView>
    </center>

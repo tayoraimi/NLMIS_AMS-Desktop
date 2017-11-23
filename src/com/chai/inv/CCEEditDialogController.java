@@ -553,8 +553,8 @@ public class CCEEditDialogController {
             System.out.println("**In handleOnMakeChange");
 		if (x_CCE_MAKE.getValue() != null 
                         && !x_CCE_MAKE.getValue().getLabel().equals("")) {
-                        x_CCE_MODEL.setPromptText("Model"); 
-                        x_CCE_MODEL.setDisable(false);     
+//                        x_CCE_MODEL.setPromptText("Model"); 
+//                        x_CCE_MODEL.setDisable(false);     
 			//x_CCE_MODEL.getItems().addAll(new LabelValueBean("", null));
 //			x_CCE_MODEL.setItems(cceService.getDropdownList("ModelList",
 //					x_CCE_MAKE.getValue().getLabel()));
@@ -601,7 +601,7 @@ public class CCEEditDialogController {
 		if (x_CCE_TYPE.getValue() != null 
                         && !x_CCE_TYPE.getValue().getLabel().equals("")) {
                     x_CCE_CATEGORY.setPromptText("Category"); 
-                    x_CCE_CATEGORY.setDisable(false);     
+//                    x_CCE_CATEGORY.setDisable(false);     
 //                    x_CCE_CATEGORY.getItems().addAll(
 //                                    new LabelValueBean("", null));
                     x_CCE_CATEGORY.setItems(cceService.getDropdownList("CategoryList",
@@ -808,6 +808,9 @@ public class CCEEditDialogController {
                                 || x_CCE_STATUS.getValue().toString().length() == 0) {
 				errorMessage += "No CCE Status selected!\n";
 			}
+                        if (x_CCE_SRC.getValue()==null) {
+				errorMessage += "No CCE Source selected!\n";
+			}
                         else{
                             if (x_CCE_STATUS.getValue().toString().equalsIgnoreCase("Not Functional")
                                     && (x_CCE_NF_DATE.getValue() == null 
@@ -829,9 +832,9 @@ public class CCEEditDialogController {
                         else{
                             int countYearsInstalled = CalendarUtil.getCurrentYear()-Integer.parseInt(x_CCE_ACQUISITION1.getValue());
                             
-                            System.out.println("Age of CCE : "+countYearsInstalled+" ,Decision is : "+x_CCE_DECISION.getValue());
+                            System.out.println("Age of CCE : "+countYearsInstalled+" ,Decision is : "+x_CCE_DECISION.getValue()+" ,Expected Working Life :"+expectedWorkingLife);
                             if((countYearsInstalled>expectedWorkingLife && !x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))||(countYearsInstalled<expectedWorkingLife && x_CCE_DECISION.getValue().toString().equalsIgnoreCase("Obsolete"))){
-                                errorMessage += "Decision and Year of Installation does not agree!\n";
+                                errorMessage += "Decision, Year of Installation and Expected working life of CCE does not agree!\n";
                             }
                         }
                         if (x_CCE_ACQUISITION2.getValue()==null
