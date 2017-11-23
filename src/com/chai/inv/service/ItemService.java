@@ -273,6 +273,7 @@ public class ItemService {
 		ObservableList<ItemBean> itemData = FXCollections.observableArrayList();
 		try {
 			if (dao == null || dao.getConnection() == null || dao.getConnection().isClosed()) {
+                            System.out.println("Reached here to select from local - change to server");
 				dao = DatabaseOperation.getDbo();
 			}
 			pstmt = dao.getPreparedStatement("SELECT ITEM_ID,  ITEM_NUMBER, ITEM_NAME, ITEM_DESCRIPTION, UCASE(ITEM_TYPE_CODE) AS ITEM_TYPE_CODE, "

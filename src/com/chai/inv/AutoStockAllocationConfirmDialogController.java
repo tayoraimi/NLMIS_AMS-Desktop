@@ -14,8 +14,11 @@ import javafx.stage.WindowEvent;
 
 import com.chai.inv.model.CustProdMonthlyDetailBean;
 import com.chai.inv.model.CustomerBean;
+import com.chai.inv.model.ItemsOnHandListBean;
 import com.chai.inv.model.UserBean;
 import com.chai.inv.service.CustomerService;
+import com.chai.inv.service.ItemsOnHandListService;
+import javafx.collections.ObservableList;
 
 public class AutoStockAllocationConfirmDialogController {
 	
@@ -28,6 +31,8 @@ public class AutoStockAllocationConfirmDialogController {
 	
 	private Stage dialogStage;
 	private UserBean userBean;
+	private ItemsOnHandListBean itemsOnHandListBean=new ItemsOnHandListBean();
+        private ObservableList<CustProdMonthlyDetailBean> storedFacilityAllocation;
 	private CustomerMainController customerMain;
 	private CustomerService customerService = new CustomerService();
 	private boolean okClicked;
@@ -67,9 +72,10 @@ public class AutoStockAllocationConfirmDialogController {
 
 	public void setFormDefaults(CustomerBean bean) throws SQLException {
 		custBean = bean;
-		x_TEXT.setText(bean.getX_CUSTOMER_NAME());
+		x_TEXT.setText(bean.getX_CUSTOMER_NAME());//*****************
 		System.out.println("Choosen option on Auto-Order generation : "+ ChooseProductAllocationController.selectedRadioText);
-		x_TABLE.setItems(customerService.getAutoStockAllocationConfirmationList(bean.getX_CUSTOMER_ID(),ChooseProductAllocationController.selectedRadioText));
+                storedFacilityAllocation = customerService.getAutoStockAllocationConfirmationList(bean.getX_CUSTOMER_ID(),ChooseProductAllocationController.selectedRadioText);
+		x_TABLE.setItems(storedFacilityAllocation);
 		if (x_TABLE.getItems().size() == 0) {
 			System.out.println("Auto Stock Allocation Confirmation tbale size : "+ x_TABLE.getItems().size());
 			x_TABLE.setPlaceholder(new Text("New Stock Does not exist!"));

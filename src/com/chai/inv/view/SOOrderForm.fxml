@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.SalesOrderFormController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.SalesOrderFormController">
    <top>
       <VBox prefHeight="36.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,12 +43,12 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label text="Order#" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <Label text="Order#" visible="false" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <TextField editable="false" prefHeight="29.0" prefWidth="147.0" promptText="Order#" GridPane.rowIndex="2" GridPane.valignment="TOP" fx:id="x_ORDER_NUMBER">
+                  <TextField editable="false" prefHeight="29.0" prefWidth="147.0" promptText="Order#" visible="false" GridPane.rowIndex="2" GridPane.valignment="TOP" fx:id="x_ORDER_NUMBER">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -56,7 +56,7 @@
                         <Insets />
                      </GridPane.margin>
                   </TextField>
-                  <Label text="Order Date" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <Label text="Order Date" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -64,12 +64,12 @@
                         <Insets left="17.0" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker prefHeight="33.0" prefWidth="178.0" promptText="Select Order Date" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" fx:id="x_ORDER_DATE">
+                  <DatePicker prefHeight="33.0" prefWidth="178.0" promptText="Select Order Date" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" fx:id="x_ORDER_DATE">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <Label text="Ship To" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                  <Label text="Ship To" visible="false" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -77,37 +77,37 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <ComboBox editable="true" onAction="#handleOrderToChange" prefHeight="30.0" prefWidth="198.0" promptText="Select Ship To" style="-fx-font-size: 13;" visibleRowCount="5" GridPane.rowIndex="4" GridPane.valignment="TOP" fx:id="x_ORDER_TO" />
-                  <ComboBox editable="true" onAction="#handleStoreTypeChange" prefHeight="31.0" prefWidth="198.0" style="-fx-font-size: 15;" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" fx:id="x_STORE_TYPE">
+                  <ComboBox editable="true" onAction="#handleOrderToChange" prefHeight="30.0" prefWidth="198.0" promptText="Select Ship To" style="-fx-font-size: 13;" visible="false" visibleRowCount="5" GridPane.rowIndex="4" GridPane.valignment="TOP" fx:id="x_ORDER_TO" />
+                  <ComboBox editable="true" onAction="#handleStoreTypeChange" prefHeight="31.0" prefWidth="198.0" style="-fx-font-size: 15;" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" GridPane.valignment="TOP" fx:id="x_STORE_TYPE">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <ComboBox editable="true" prefHeight="29.0" prefWidth="177.0" visibleRowCount="5" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="x_SELECTED_STORE_NAME">
+                  <ComboBox editable="true" prefHeight="29.0" prefWidth="177.0" visible="false" visibleRowCount="5" GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="x_SELECTED_STORE_NAME">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <Label text="Schedule Ship date" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+                  <Label text="Schedule Ship date" visible="false" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="X_SHIP_DATE" prefHeight="30.0" prefWidth="197.0" promptText="Select Ship Date" GridPane.rowIndex="6" GridPane.valignment="TOP" />
-                  <Label text="Order Status" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <DatePicker fx:id="X_SHIP_DATE" prefHeight="30.0" prefWidth="197.0" promptText="Select Ship Date" visible="false" GridPane.rowIndex="6" GridPane.valignment="TOP" />
+                  <Label text="Order Status" GridPane.columnIndex="2" GridPane.valignment="TOP">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="5.0" />
+                        <Insets left="17.0" />
                      </GridPane.margin>
                   </Label>
-                  <ComboBox editable="true" onAction="#CheckOrderStatusChange" prefHeight="29.0" prefWidth="200.0" promptText="Select Order Status" style="-fx-font-size: 13;" visibleRowCount="5" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="NEVER" fx:id="x_ORDER_STATUS">
+                  <ComboBox editable="true" onAction="#CheckOrderStatusChange" prefHeight="29.0" prefWidth="200.0" promptText="Select Order Status" style="-fx-font-size: 13;" visibleRowCount="5" GridPane.columnIndex="2" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="NEVER" fx:id="x_ORDER_STATUS">
                      <GridPane.margin>
                         <Insets left="5.0" right="5.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <Label text="Comment" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+                  <Label text="Comment" visible="false" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -115,7 +115,7 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <Label text="Cancel Date" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                  <Label text="Cancel Date" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -123,12 +123,12 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker prefHeight="32.0" prefWidth="197.0" promptText="Select Cancel Date" GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="x_CANCEL_DATE">
+                  <DatePicker prefHeight="32.0" prefWidth="197.0" promptText="Select Cancel Date" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="x_CANCEL_DATE">
                      <GridPane.margin>
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <Label text="Cancel Reason" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                  <Label text="Cancel Reason" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="7">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -136,7 +136,7 @@
                         <Insets left="5.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label layoutX="10.0" layoutY="147.0" text="Shipped date" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Label layoutX="10.0" layoutY="147.0" text="Shipped date" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -144,7 +144,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <DatePicker disable="true" layoutX="10.0" layoutY="168.0" prefHeight="30.0" prefWidth="176.0" promptText="Shipped Date" GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="x_SHIPPED_DATE_ON_RECEIVE">
+                  <DatePicker disable="true" layoutX="10.0" layoutY="168.0" prefHeight="30.0" prefWidth="176.0" promptText="Shipped Date" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="x_SHIPPED_DATE_ON_RECEIVE">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -174,7 +174,7 @@
             </GridPane>
             <HBox prefHeight="52.0" prefWidth="601.0" spacing="30.0">
                <children>
-                  <TextArea prefHeight="35.0" prefWidth="363.0" promptText="Enter comment about the order here..." wrapText="true" fx:id="x_COMMENT">
+                  <TextArea prefHeight="35.0" prefWidth="363.0" promptText="Enter comment about the order here..." visible="false" wrapText="true" fx:id="x_COMMENT">
                      <VBox.margin>
                         <Insets left="11.0" right="27.0" />
                      </VBox.margin>
@@ -185,7 +185,7 @@
                         <Insets left="10.0" />
                      </HBox.margin>
                   </TextArea>
-                  <TextArea prefHeight="35.0" prefWidth="202.0" promptText="Enter Cancel Reason here..." wrapText="true" fx:id="x_CANCEL_REASON">
+                  <TextArea prefHeight="35.0" prefWidth="202.0" promptText="Enter Cancel Reason here..." visible="false" wrapText="true" fx:id="x_CANCEL_REASON">
                      <VBox.margin>
                         <Insets left="10.0" right="27.0" />
                      </VBox.margin>

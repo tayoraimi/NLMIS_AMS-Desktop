@@ -275,7 +275,7 @@ public class SalesOrderFormController {
 			if (bean.getLabel().equalsIgnoreCase("INCOMPLETE")) {
 				ORDER_STATUS_INCOMPLETE_LVB = bean;
 			}
-			if (bean.getLabel().equalsIgnoreCase("CLOSED/ISSUE")) {
+			if (bean.getLabel().equalsIgnoreCase("COMPLETE")) {
 				ORDER_STATUS_CLOSED_LVB = bean;
 			}
 		}
@@ -286,7 +286,7 @@ public class SalesOrderFormController {
 				x_CANCEL_REASON.setDisable(true);
 				x_SAVE_BTN.setDisable(true);
 				x_DELETE_BTN.setDisable(true);
-			}else if(orderFormBean.getX_ORDER_STATUS().equals("CLOSED/ISSUE")){
+			}else if(orderFormBean.getX_ORDER_STATUS().equals("COMPLETE")){
 				orderAlreadyClosed_issue=true;
 				x_CANCEL_DATE.setDisable(true);
 				x_CANCEL_REASON.setDisable(true);
@@ -575,7 +575,7 @@ public class SalesOrderFormController {
 				System.out.println("lvb.getLabel() is null");
 			}
 			
-			if (x_ORDER_STATUS.getValue().getLabel().equals("CLOSED/ISSUE") && orderAlreadyOpen) {
+			if (x_ORDER_STATUS.getValue().getLabel().equals("COMPLETE") && orderAlreadyOpen) {
 				System.out.println("auto close Process Started");
 				startAutoCloseProcess();
 				insertFlag=true;

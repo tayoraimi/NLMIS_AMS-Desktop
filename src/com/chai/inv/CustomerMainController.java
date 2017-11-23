@@ -904,7 +904,7 @@ public class CustomerMainController {
 				if(selectedCustomerBean.getX_TARGET_POPULATION().length()!=0){
 					// call to choose radioboxes
 					if (chooseProductAllocationType()) {
-						if (handleCustomersAutoProcess()) {
+						if (handleCustomersAutoProcess()) {//generates the allocation into the db
 							if (customerService.checkForRecordAvailablility(
 									userBean.getX_USER_WAREHOUSE_ID(),
 									selectedCustomerBean.getX_CUSTOMER_ID())) {

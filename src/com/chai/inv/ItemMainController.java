@@ -1,5 +1,6 @@
 package com.chai.inv;
 
+import com.chai.inv.DAO.DatabaseOperation;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -151,6 +152,15 @@ public class ItemMainController {
 
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
+                try{
+                DatabaseOperation.CONNECT_TO_SERVER=true;
+                DatabaseOperation.getDbo().closeConnection();
+                DatabaseOperation.setDbo(null);
+		} catch (Exception ex) {
+			System.out.println("Error occured while connecting to central server for products layout.. "+ ex.getMessage());
+			MainApp.LOGGER.setLevel(Level.SEVERE);
+			MainApp.LOGGER.severe("Error occured while connecting to central server for products layout.."+MyLogger.getStackTrace(ex));
+		}
 		itemService = new ItemService();
 		if (!(MainApp.getUserRole().getLabel().equals("NTO") && CustomChoiceDialog.selectedLGA == null)) {
 			if (CustomChoiceDialog.selectedLGA != null) {
