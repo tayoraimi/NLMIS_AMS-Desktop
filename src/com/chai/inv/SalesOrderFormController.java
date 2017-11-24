@@ -304,8 +304,8 @@ public class SalesOrderFormController {
 				System.out.println("2. ----bean.getX_LINE_SHIP_DATE_2()---in form defaults loop"
 								+ bean.getX_LINE_SHIP_DATE_2());
 				if (bean.getX_LINE_SHIP_DATE() != null || bean.getX_LINE_SHIP_DATE_2() != null) {
-					x_SHIPPED_QTY_COL.setVisible(true);
-					x_SHIPPED_DATE_COL.setVisible(true);
+//					x_SHIPPED_QTY_COL.setVisible(true);
+//					x_SHIPPED_DATE_COL.setVisible(true);
 					break;
 				} else {
 					x_SHIPPED_QTY_COL.setVisible(false);
@@ -370,7 +370,7 @@ public class SalesOrderFormController {
 			x_STORE_TYPE.setVisible(false);
 			break;
 		case "2":
-			x_STORE_TYPE.setVisible(true);
+//			x_STORE_TYPE.setVisible(true);
 			x_STORE_TYPE
 					.setItems(orderFormService.getDropdownList("StoreType"));
 			x_STORE_TYPE.getItems().addAll(
@@ -379,7 +379,7 @@ public class SalesOrderFormController {
 			x_STORE_TYPE.setPromptText("Select Store Type");
 			break;
 		case "3":
-			x_STORE_TYPE.setVisible(true);
+//			x_STORE_TYPE.setVisible(true);
 			x_STORE_TYPE.setItems(orderFormService.getDropdownList("Vendor"));
 			x_STORE_TYPE.getItems().addAll(
 					new LabelValueBean("----(select none)----", null));
@@ -741,8 +741,8 @@ public class SalesOrderFormController {
 						
 					}
 					if (tempTotalIssueQty > 0) {
-						this.getX_SHIPPED_QTY_COL().setVisible(true);
-						this.getX_SHIPPED_DATE_COL().setVisible(true);
+//						this.getX_SHIPPED_QTY_COL().setVisible(true);
+//						this.getX_SHIPPED_DATE_COL().setVisible(true);
 					}
 				} else {
 					addOrderLineFormBean.setX_LINE_SHIP_QTY(null);
