@@ -126,12 +126,15 @@ public class AddStockAdjustmentFormController {
 				@Override
 				public void handle(KeyEvent t) {
 					int sub = 0;
+                                        int addVal = 0;
 					if (t.getCode().isDigitKey() || t.getCode() == KeyCode.BACK_SPACE) {
 						//for check adjustment type selected or not
 						System.out.println("digit key : " + x_PHYSICAL_STOCK_BAL.getText());
 						System.out.println("t.getCode().getName(): "+ t.getCode().getName());
 						sub = (Integer.parseInt((x_PHYSICAL_STOCK_BAL.getText() == null) || (x_PHYSICAL_STOCK_BAL.getText().equals("")) ? "0" : x_PHYSICAL_STOCK_BAL.getText()))
-									-(Integer.parseInt((x_EXPECTED_STOCK_BAL.getText() == null) || (x_EXPECTED_STOCK_BAL.getText().equals("")) ? "0" : x_EXPECTED_STOCK_BAL.getText()));		
+									-(Integer.parseInt((x_EXPECTED_STOCK_BAL.getText() == null) || (x_EXPECTED_STOCK_BAL.getText().equals("")) ? "0" : x_EXPECTED_STOCK_BAL.getText()));
+						addVal = (Integer.parseInt((x_PHYSICAL_STOCK_BAL.getText() == null) || (x_PHYSICAL_STOCK_BAL.getText().equals("")) ? "0" : x_PHYSICAL_STOCK_BAL.getText()))
+									+(Integer.parseInt((x_EXPECTED_STOCK_BAL.getText() == null) || (x_EXPECTED_STOCK_BAL.getText().equals("")) ? "0" : x_EXPECTED_STOCK_BAL.getText()));		
 						if(x_PHYSICAL_STOCK_BAL.getText().length()==0){
 							x_DIFFERENCE.clear();
 						}else{
@@ -145,6 +148,10 @@ public class AddStockAdjustmentFormController {
 								x_PHYSICAL_STOCK_BAL.clear();
 							}else{
 								x_DIFFERENCE.setText(Integer.toString(Math.abs(sub)));	
+							}
+                                                        if(x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Received From LGA")
+											|| x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Returned From Health Facility")){
+								x_DIFFERENCE.setText(Integer.toString(addVal));	
 							}
 						}
 						sub = 0;
@@ -190,6 +197,7 @@ public class AddStockAdjustmentFormController {
 			//show hf dropdwon for returned grom health facility
 			if(x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Returned From Health Facility")){
 				x_HF_DROPDOWN.setVisible(true);
+                                x_DIFF_LBL.setText("Sum");
 			}else{
 				x_HF_DROPDOWN.setVisible(false);
 			}
@@ -214,35 +222,36 @@ public class AddStockAdjustmentFormController {
 			}else if(x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Received From LGA")){
 				x_STOCK_BAL_LBL.setText("Stock Balance");
 				x_STOCK_COUNT_GRD_LBL.setText("Received Quantity");
-				x_GRID_PANE.getChildren().remove(x_DIFF_LBL);
+                                x_DIFF_LBL.setText("Sum");
+//				x_GRID_PANE.getChildren().remove(x_DIFF_LBL);
 				for(TextField tf : field){
 					tf.setPromptText("Enter Received Quantity");
 				}
-				for(TextField tf1 : fieldListForDifference){
-					x_GRID_PANE.getChildren().remove(tf1);
-				}
+//				for(TextField tf1 : fieldListForDifference){
+//					x_GRID_PANE.getChildren().remove(tf1);
+//				}
 				
 			}else if(x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Returned From Health Facility") 
 					|| x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Returned To State")){
 				x_STOCK_BAL_LBL.setText("Stock Balance");
 				x_STOCK_COUNT_GRD_LBL.setText("Quantity To Return");
-				x_GRID_PANE.getChildren().remove(x_DIFF_LBL);
+//				x_GRID_PANE.getChildren().remove(x_DIFF_LBL);
 				for(TextField tf : field){
 					tf.setPromptText("Enter Returne Quantity");
 				}
-				for(TextField tf1 : fieldListForDifference){
-					x_GRID_PANE.getChildren().remove(tf1);
-				}
+//				for(TextField tf1 : fieldListForDifference){
+//					x_GRID_PANE.getChildren().remove(tf1);
+//				}
 			}else if(x_ADJUSTMENT_TYPE.getValue().getLabel().equals("Sent To LGA")){
 				x_STOCK_BAL_LBL.setText("Stock Balance");
 				x_STOCK_COUNT_GRD_LBL.setText("Quantity To Sent");
-				x_GRID_PANE.getChildren().remove(x_DIFF_LBL);
+//				x_GRID_PANE.getChildren().remove(x_DIFF_LBL);
 				for(TextField tf : field){
 					tf.setPromptText("Enter Sent Quantity");
 				}
-				for(TextField tf1 : fieldListForDifference){
-					x_GRID_PANE.getChildren().remove(tf1);
-				}
+//				for(TextField tf1 : fieldListForDifference){
+//					x_GRID_PANE.getChildren().remove(tf1);
+//				}
 			}
 		}
 	}
