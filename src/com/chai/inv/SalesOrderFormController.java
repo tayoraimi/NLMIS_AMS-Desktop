@@ -581,8 +581,16 @@ public class SalesOrderFormController {
 				insertFlag=true;
 				System.out.println("auto close Process Finished");
 			}
-			if(x_ORDER_STATUS.getValue().getLabel().equals("OPEN") && orderAlreadyOpen)	{
+			if(x_ORDER_STATUS.getValue().getLabel().equals("OPEN"))	{
 				insertFlag=true;
+			}
+			if(x_ORDER_STATUS.getValue().getLabel().equals("INCOMPLETE"))	{
+				insertFlag=true;
+			}
+			if(x_ORDER_STATUS.getValue().getLabel().equals("CLOSED/ISSUE"))	{
+				startAutoCloseProcess();
+				insertFlag=true;
+				System.out.println("auto close Process Finished");
 			}
 			orderFormBean.setX_CREATED_BY(userBean.getX_USER_ID());
 			orderFormBean.setX_UPDATED_BY(userBean.getX_USER_ID());
@@ -646,15 +654,18 @@ public class SalesOrderFormController {
 				message = "Order is Updated to the Orders List";
 				boolean orderLineUpdateSuccess = false;
 				boolean orderHeaderUpdateSuccess = false;
+                                        System.out.println("Print insert boolean : "+orderLineUpdateSuccess);
 				if(insertFlag){
 					// Operation : edit only				
 //					if (OrderStatusValidation.validateOrderStatus(orderFormBean.getX_ORDER_STATUS(), list, dialogStage,this)) {
 //					}
 					orderHeaderUpdateSuccess = orderFormService.saveSalesOrderHeaders(orderFormBean);
+                                        System.out.println("Print header boolean : "+orderHeaderUpdateSuccess);
 					if (orderHeaderUpdateSuccess) {
 						orderLineUpdateSuccess = orderFormService.saveSalesOrderLineItems(list,cancelCompleteOrder,
 								orderFormBean.getX_ORDER_FROM_ID(),orderFormBean.getX_ORDER_TO_ID());
-					}					
+					}
+                                        System.out.println("Print line update boolean : "+orderLineUpdateSuccess);					
 				}
 				salesOrderMain.refreshOrderTable();
 				okClicked = true;
@@ -665,6 +676,10 @@ public class SalesOrderFormController {
 					dialogStage.close();
 				} else {
 					System.out.println("------------order data update is not successful------- ");
+                                        org.controlsfx.dialog.Dialogs.create().owner(dialogStage)
+							.title("Information").masthead("Not Successfully Updated!")
+							.message("Order is not Updated to the Orders List").showError();
+					dialogStage.close();
 				}
 			}
 		}
