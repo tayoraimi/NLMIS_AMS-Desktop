@@ -25,7 +25,8 @@ public class DashboardService {
 	 * this method is used for lga dashboard data
 	 * */
 	public ObservableList<CustProdMonthlyDetailBean> getLgaDashBoard(String year, String weekNumber){
-		String x_WHERE_CONDITION = " WHERE DATE_FORMAT(STOCK_RECEIVED_DATE,'%Y-%v') = '"+year+"-"+weekNumber+"' "
+		String x_WHERE_CONDITION = " WHERE DATE_FORMAT(STOCK_RECEIVED_DATE,'%v') = "+weekNumber
+                                +"  AND DATE_FORMAT(STOCK_RECEIVED_DATE,'%Y') = "+year
 				+ " AND LGA_ID=IFNULL("+MainApp.getUSER_WAREHOUSE_ID()+",LGA_ID) ";						
 		ObservableList<CustProdMonthlyDetailBean > lgaDashboardlist=FXCollections.observableArrayList();
 		String x_QUERY="";
@@ -71,10 +72,14 @@ public class DashboardService {
 		}
 		try {
 			if (dao == null || dao.getConnection() == null || dao.getConnection().isClosed()) {
+                            System.out.println("Got here initialize getDbo");
 				dao = DatabaseOperation.getDbo();
 			}
+                        System.out.println("Got here Getting prepared statement");
 			pstmt = dao.getPreparedStatement(x_QUERY);
+                        System.out.println("Got here Starting executeQuery"+x_QUERY);
 			rs = pstmt.executeQuery();
+                        System.out.println("Got here Query executed "+x_QUERY);
 			while(rs.next()){
 				CustProdMonthlyDetailBean bean=new CustProdMonthlyDetailBean();
 				if((MainApp.getUserRole().getLabel().equals("SCCO")
@@ -110,6 +115,7 @@ public class DashboardService {
 			MainApp.LOGGER.setLevel(Level.INFO);			
 			MainApp.LOGGER.info("DashBoard Service: getLgaDashboard check Query: \n "+ pstmt.toString());
 		}
+                System.out.println("Got to lgaDashboardlist");
 		return lgaDashboardlist;
 	}
 	/**

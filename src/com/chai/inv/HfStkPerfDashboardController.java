@@ -1,5 +1,6 @@
 package com.chai.inv;
 
+import com.chai.inv.DAO.DatabaseOperation;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -125,7 +126,10 @@ public class HfStkPerfDashboardController {
 			System.out.println("in setdefaults");
 			//x_GRID_PANE.getChildren().clear();
 			double maxWidth = 0;
-			lgaDashboardList=new DashboardService().getLgaDashBoard(x_YEAR_FILTER.getValue(),x_WEEK_FILTER.getValue());	
+                        System.out.println("Users role: "+MainApp.getUserRole().getLabel());
+                        DatabaseOperation.CONNECT_TO_SERVER=false;
+                        DatabaseOperation.getDbo().closeConnection();
+			lgaDashboardList=new DashboardService().getLgaDashBoard(x_YEAR_FILTER.getValue(),x_WEEK_FILTER.getValue());
 			if(lgaDashboardList.size()>0){
 				x_GRID_PANE.getChildren().clear();
 				System.out.println("in lgaDashboardList.size()!=0");
@@ -134,7 +138,7 @@ public class HfStkPerfDashboardController {
 				int productIndex=0;
 				for (LabelValueBean lbvb : vaccineList) {
 					TextArea Productlbl=new TextArea();
-					Productlbl.setStyle("-fx-text-fill: #0077cc;"+"-fx-border-color:black;");
+					Productlbl.setStyle("-fx-text-fill: #0077cc;"+"-fx-border-color:black;");//blue font for header
 					Productlbl.setWrapText(true);
 					if(lbvb.getLabel().length()>2 && lbvb.getLabel().length()<7){
 						Productlbl.setPrefSize(40, 50);
@@ -180,7 +184,7 @@ public class HfStkPerfDashboardController {
 					}
 					stateNameLbl.setText(lgaDashboardList.get(0).getX_STATE_NAME());
 					stateNameLbl.setFont(Font.font("Amble Cn", FontWeight.BOLD,14));
-					stateNameLbl.setStyle("-fx-background-color:#efefef;"+"-fx-border-color:black;");
+					stateNameLbl.setStyle("-fx-background-color:#efefef;"+"-fx-border-color:black;");//UI colour
 					stateNameLbl.setEditable(false);
 				    x_GRID_PANE.add(stateNameLbl,0, 0);
 				    maxWidth = (stateNameLbl.getMaxWidth()>maxWidth?stateNameLbl.getMaxWidth():maxWidth);
@@ -197,7 +201,7 @@ public class HfStkPerfDashboardController {
 							blank.setStyle("-fx-border-color:black");
 							blank.setText("0");
 							blank.setAlignment(Pos.CENTER);
-							blank.setStyle("-fx-background-color:red;-fx-border-color:black;");
+							blank.setStyle("-fx-background-color:red;-fx-border-color:black;");//red
 							blank.setEditable(false);
 							//for where stock bal is null
 							x_GRID_PANE.add(blank, j+1, i);
@@ -264,9 +268,9 @@ public class HfStkPerfDashboardController {
 							TextField blank=new TextField();
 							blank.setPrefSize(30, 10);
 							blank.setStyle("-fx-border-color:black");
-							blank.setText("0");
+//							blank.setText("0");
 							blank.setAlignment(Pos.CENTER);
-							blank.setStyle("-fx-background-color:red;-fx-border-color:black;");
+//							blank.setStyle("-fx-background-color:red;-fx-border-color:black;");
 							blank.setEditable(false);
 							x_GRID_PANE.add(blank, j+1, i);
 							for (int j2 = 0; j2 < lgaDashboardList.size(); j2++) {
