@@ -33,7 +33,7 @@
                </graphic>
             </Button>
             <Label prefHeight="17.0" prefWidth="32.0" />
-            <CheckBox mnemonicParsing="false" onAction="#handleHideCheckBox" text="Show Hidden Column" fx:id="x_CCE_STATUS_HIDE_COLUMNS" />
+            <CheckBox mnemonicParsing="false" onAction="#handleHideCheckBox" text="Show Hidden Column" visible="false" fx:id="x_CCE_STATUS_HIDE_COLUMNS" />
             <Label prefHeight="17.0" prefWidth="24.0" />
             <Label prefHeight="10.0" prefWidth="15.0" style="-fx-background-color: green;" />
             <Label text="Percentage &gt; 90%" />
@@ -62,8 +62,8 @@
               <TableColumn fx:id="cceStatusFColumn" style="-fx-alignment: center-left;" text="Functional" />
               <TableColumn fx:id="cceStatusNFColumn" style="-fx-alignment: center-left;" text="Not Functional" />
               <TableColumn fx:id="cceStatusNIColumn" style="-fx-alignment: center;" text="Not Installed" />
-            <TableColumn fx:id="cceStatusOFColumn" style="-fx-alignment: center-left;" text="Obsolete and Functional" visible="false" />
-              <TableColumn fx:id="cceStatusONFColumn" style="-fx-alignment: center-left;" text="Obsolete and Non Functional" visible="false" />
+            <TableColumn fx:id="cceStatusOFColumn" style="-fx-alignment: center-left;" text="Obsolete and Functional" />
+              <TableColumn fx:id="cceStatusONFColumn" style="-fx-alignment: center-left;" text="Obsolete and Non Functional" />
             <TableColumn fx:id="cceStatusTotalColumn" prefWidth="74.0" style="-fx-alignment: center-left;" text="Total" />
            </columns>
         </TableView>

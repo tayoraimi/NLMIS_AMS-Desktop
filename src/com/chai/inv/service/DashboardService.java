@@ -15,6 +15,7 @@ import com.chai.inv.MainApp;
 import com.chai.inv.DAO.DatabaseOperation;
 import com.chai.inv.logger.MyLogger;
 import com.chai.inv.model.CustProdMonthlyDetailBean;
+import com.chai.inv.model.HFManBalanceDetailBean;
 import com.chai.inv.model.LgaDashBoardPerfBean;
 
 public class DashboardService {
@@ -117,6 +118,92 @@ public class DashboardService {
 		}
                 System.out.println("Got to lgaDashboardlist");
 		return lgaDashboardlist;
+	}
+	/**
+	 * this method is used for HF Manual Stock Balance dashboard data
+	 * */
+	public ObservableList<HFManBalanceDetailBean> getManualHfStkBalDashBoard(String year, String weekNumber){
+		String x_WHERE_CONDITION = " WHERE DATE_FORMAT(ENTRY_DATE,'%v') = "+weekNumber
+                                +"  AND DATE_FORMAT(ENTRY_DATE,'%Y') = "+year;						
+		ObservableList<HFManBalanceDetailBean > manualHfStkBalDashboardlist=FXCollections.observableArrayList();
+		String x_QUERY="";
+		if((MainApp.getUserRole().getLabel().equals("SCCO")
+				|| MainApp.getUserRole().getLabel().equals("SIO")
+				|| MainApp.getUserRole().getLabel().equals("SIFP"))
+				&& MainApp.selectedLGA==null){
+			x_QUERY="";
+		}else{
+			x_QUERY="SELECT STATE_ID,"
+					+ " STATE_NAME, "
+					+ " LGA_ID,	"
+					+ " LGA_NAME, "
+					+"  '' AS CUSTOMER_ID,"
+					+ " '' AS CUSTOMER_NAME,"
+					+ " ITEM_ID, "	
+					+ " ITEM_NUMBER, "	
+					+ " ENTRY_DATE, "
+					+"  SUM(STOCK_BALANCE) AS STOCK_BALANCE"
+			   + " FROM view_manual_hf_stock_entry "+x_WHERE_CONDITION+" GROUP BY ITEM_ID"
+				+" union "
+                                        +"SELECT STATE_ID,"
+					+ " STATE_NAME, "
+					+ " LGA_ID,	"
+					+ " LGA_NAME, "
+					+"  CUSTOMER_ID,"
+					+ " CUSTOMER_NAME,"
+					+ " ITEM_ID, "
+					+ " ITEM_NUMBER, "	
+					+ " ENTRY_DATE, "
+					+"  STOCK_BALANCE"
+                                        +" FROM view_manual_hf_stock_entry "+x_WHERE_CONDITION
+				+ " AND DEFAULT_STORE_ID=IFNULL("+MainApp.getUSER_WAREHOUSE_ID()+",DEFAULT_STORE_ID) ";
+		}
+	
+		if(year==null || weekNumber==null){
+			x_QUERY+=" WHERE 1=0 ";
+		}
+		try {
+			if (dao == null || dao.getConnection() == null || dao.getConnection().isClosed()) {
+                            System.out.println("Got here initialize getDbo");
+				dao = DatabaseOperation.getDbo();
+			}
+                        System.out.println("Got here Getting prepared statement");
+			pstmt = dao.getPreparedStatement(x_QUERY);
+                        System.out.println("Got here Starting executeQuery"+x_QUERY);
+			rs = pstmt.executeQuery();
+                        System.out.println("Got here Query executed "+x_QUERY);
+			while(rs.next()){
+				HFManBalanceDetailBean bean=new HFManBalanceDetailBean();
+				if((MainApp.getUserRole().getLabel().equals("SCCO")
+						|| MainApp.getUserRole().getLabel().equals("SIO")
+						|| MainApp.getUserRole().getLabel().equals("SIFP"))
+						&& MainApp.selectedLGA==null){
+				}else{
+					
+					bean.setX_CUSTOMER_ID(rs.getString("CUSTOMER_ID"));
+					bean.setX_CUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
+					bean.setX_ENTRY_DATE(rs.getString("ENTRY_DATE"));
+					bean.setX_STOCK_BALANCE(rs.getString("STOCK_BALANCE"));
+				}
+				bean.setX_ITEM_ID(rs.getString("ITEM_ID"));
+				bean.setX_ITEM_NUMBER(rs.getString("ITEM_NUMBER"));
+				bean.setX_LGA_ID(rs.getString("LGA_ID"));
+				bean.setX_LGA_NAME(rs.getString("LGA_NAME"));
+				manualHfStkBalDashboardlist.add(bean);
+			}
+		} catch (SQLException e) {
+			MainApp.LOGGER.setLevel(Level.SEVERE);			
+			MainApp.LOGGER.severe("DashBoard Service getManualHfStkBalDashBoard: Exception: "+e.getMessage());
+			MainApp.LOGGER.severe(MyLogger.getStackTrace(e));
+			Dialogs.create()
+			.title("Error")
+			.message(e.getMessage()).showException(e);
+		}finally{
+			MainApp.LOGGER.setLevel(Level.INFO);			
+			MainApp.LOGGER.info("DashBoard Service: getManualHfStkBalDashBoard check Query: \n "+ pstmt.toString());
+		}
+                System.out.println("Got to manualHfStkBalDashboardlist");
+		return manualHfStkBalDashboardlist;
 	}
 	/**
 	 * this method is used for lga dashboard data
@@ -468,6 +555,8 @@ public class DashboardService {
 			if(bean.getX_WEEK()==null || bean.getX_YEAR()==null){
 				x_QUERY+=" WHERE 1=0 ";
 			}
+                        
+				System.out.println("The X-QUERY is : "+x_QUERY);
 		}
 		try {
 			if (dao == null || dao.getConnection() == null || dao.getConnection().isClosed()) {

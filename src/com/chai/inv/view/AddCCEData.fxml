@@ -9,9 +9,10 @@
 
 <AnchorPane prefHeight="574.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chai.inv.CCEEditDialogController">
    <children>
-      <GridPane alignment="CENTER" layoutX="32.0" layoutY="14.0" prefHeight="536.0" prefWidth="414.0">
+      <GridPane alignment="CENTER" layoutX="32.0" layoutY="14.0" prefHeight="536.0" prefWidth="654.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="306.0" minWidth="10.0" prefWidth="286.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="280.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="280.0" />
         </columnConstraints>
         <rowConstraints>
@@ -21,8 +22,6 @@
           <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="205.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="205.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
@@ -48,10 +47,10 @@
                   <Font name="System Bold" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
-            <Label text="Ward" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+            <Label text="Ward" GridPane.columnIndex="2" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -59,30 +58,30 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ComboBox onAction="#handleOnWardStoreChange" prefHeight="30.0" prefWidth="193.0" promptText="Ward" style="-fx-font-size: 15;" GridPane.rowIndex="3" GridPane.valignment="BASELINE" fx:id="x_CCE_WARD">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </ComboBox>
-            <Label text="Site Name" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="18.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Type" GridPane.rowIndex="8" GridPane.valignment="BOTTOM">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <ComboBox disable="true" onAction="#handleOnTypeChange" prefHeight="30.0" prefWidth="193.0" promptText="Type" style="-fx-font-size: 15;" GridPane.rowIndex="9" GridPane.valignment="BASELINE" fx:id="x_CCE_TYPE">
+            <ComboBox onAction="#handleOnWardStoreChange" prefHeight="30.0" prefWidth="193.0" promptText="Ward" style="-fx-font-size: 15;" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="BASELINE" fx:id="x_CCE_WARD">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </ComboBox>
-            <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleSubmitCCE" prefHeight="31.0" prefWidth="189.0" text="Ok" GridPane.rowIndex="17" GridPane.valignment="TOP" fx:id="x_OK_BTN">
+            <Label text="Site Name" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="Type" GridPane.columnIndex="2" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox disable="true" onAction="#handleOnTypeChange" prefHeight="30.0" prefWidth="193.0" promptText="Type" style="-fx-font-size: 15;" GridPane.columnIndex="2" GridPane.rowIndex="6" fx:id="x_CCE_TYPE">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ComboBox>
+            <Button alignment="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleSubmitCCE" prefHeight="31.0" prefWidth="189.0" text="Ok" GridPane.rowIndex="15" GridPane.valignment="TOP" fx:id="x_OK_BTN">
                <font>
                   <Font size="15.0" />
                </font>
@@ -90,7 +89,7 @@
                   <Insets right="30.0" top="20.0" />
                </GridPane.margin>
             </Button>
-            <Button cancelButton="true" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCancelCCE" prefHeight="31.0" prefWidth="186.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="17" GridPane.valignment="TOP" fx:id="x_CANCEL_BTN">
+            <Button cancelButton="true" layoutX="10.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleCancelCCE" prefHeight="31.0" prefWidth="186.0" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="15" GridPane.valignment="TOP" fx:id="x_CANCEL_BTN">
                <font>
                   <Font size="15.0" />
                </font>
@@ -100,47 +99,44 @@
             </Button>
             <ComboBox onAction="#handleOnLgaStoreChange" prefHeight="30.0" prefWidth="193.0" promptText="LGA" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="x_CCE_LGA">
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin></ComboBox>
             <ComboBox onAction="#handleOnStateStoreChange" prefHeight="30.0" prefWidth="193.0" promptText="State" style="-fx-font-size: 15;" GridPane.rowIndex="1" fx:id="x_CCE_STATE">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </ComboBox>
-            <ComboBox onAction="#handleOnFacilityChange" prefHeight="30.0" prefWidth="193.0" promptText="Site Name" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="x_CCE_FACILITY_NAME">
+            <ComboBox onAction="#handleOnFacilityChange" prefHeight="30.0" prefWidth="193.0" promptText="Site Name" style="-fx-font-size: 15;" GridPane.rowIndex="3" fx:id="x_CCE_FACILITY_NAME">
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </ComboBox>
-            <Label text="Category" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label text="Category" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
-            <Label text="Source of CCE" GridPane.columnIndex="1" GridPane.rowIndex="14">
+            <Label text="Source of CCE" GridPane.rowIndex="13" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
-               <padding>
-                  <Insets left="18.0" />
-               </padding>
             </Label>
-            <Label text="Date Not Functional" GridPane.columnIndex="1" GridPane.rowIndex="12" fx:id="x_CCE_DATE_NF_F">
+            <Label text="Date Not Functional" GridPane.columnIndex="2" GridPane.rowIndex="9" GridPane.valignment="BOTTOM" fx:id="x_CCE_DATE_NF_F">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
-            <DatePicker prefHeight="30.0" prefWidth="193.0" promptText="Date Not Functional" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="13" fx:id="x_CCE_NF_DATE">
+            <DatePicker prefHeight="30.0" prefWidth="193.0" promptText="Date Not Functional" style="-fx-font-size: 15;" GridPane.columnIndex="2" GridPane.rowIndex="10" fx:id="x_CCE_NF_DATE">
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin></DatePicker>
-            <Label text="Equipment Location" GridPane.rowIndex="4">
+            <Label text="Equipment Location" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -148,37 +144,37 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <ComboBox prefHeight="30.0" prefWidth="193.0" promptText="Equipment Location" style="-fx-font-size: 15;" GridPane.rowIndex="5" fx:id="x_CCE_LOCATION">
+            <ComboBox disable="true" prefHeight="30.0" prefWidth="193.0" promptText="Equipment Location" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="x_CCE_LOCATION">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </ComboBox>
-            <ComboBox disable="true" onAction="#handleOnCategoryChange" prefHeight="31.0" prefWidth="192.0" promptText="Category" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="9" fx:id="x_CCE_CATEGORY">
+            <ComboBox disable="true" onAction="#handleOnCategoryChange" prefHeight="31.0" prefWidth="192.0" promptText="Category" visibleRowCount="6" GridPane.rowIndex="8" fx:id="x_CCE_CATEGORY">
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </ComboBox>
-            <Label text="Serial No" GridPane.rowIndex="10">
+            <Label text="Serial No" GridPane.columnIndex="1" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <TextField GridPane.rowIndex="11" fx:id="x_CCE_SERIAL" />
-            <Label text="Decision" GridPane.rowIndex="12">
+            <TextField prefHeight="31.0" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="8" fx:id="x_CCE_SERIAL" />
+            <Label text="Decision" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ComboBox prefHeight="31.0" prefWidth="192.0" promptText="Decision" visibleRowCount="6" GridPane.rowIndex="13" fx:id="x_CCE_DECISION" />
-            <ComboBox onAction="#handleOnStatusChange" prefHeight="31.0" prefWidth="192.0" promptText="Status" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="11" fx:id="x_CCE_STATUS">
+            <ComboBox prefHeight="31.0" prefWidth="192.0" promptText="Decision" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="10" fx:id="x_CCE_DECISION" />
+            <ComboBox onAction="#handleOnStatusChange" prefHeight="31.0" prefWidth="192.0" promptText="Status" visibleRowCount="6" GridPane.rowIndex="10" fx:id="x_CCE_STATUS">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </ComboBox>
-            <Label text="Status" GridPane.columnIndex="1" GridPane.rowIndex="10">
+            <Label text="Status" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -186,22 +182,22 @@
                   <Insets />
                </opaqueInsets>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
-            <Label text="Year of Installation" GridPane.rowIndex="14">
+            <Label text="Year of Installation" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Source of CCE" style="-fx-font-size: 15;" GridPane.columnIndex="1" GridPane.rowIndex="15" fx:id="x_CCE_SRC">
+            <ComboBox editable="true" prefHeight="30.0" prefWidth="193.0" promptText="Source of CCE" style="-fx-font-size: 15;" GridPane.rowIndex="14" fx:id="x_CCE_SRC">
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </ComboBox>
-            <ComboBox onAction="#onYearChange" prefHeight="27.0" prefWidth="91.0" promptText="Year" GridPane.rowIndex="15" fx:id="x_CCE_ACQUISITION1" />
-            <ComboBox prefHeight="27.0" prefWidth="92.0" promptText="Month" GridPane.rowIndex="16" fx:id="x_CCE_ACQUISITION2" />
-            <Label text="Model" GridPane.rowIndex="6">
+            <ComboBox onAction="#onYearChange" prefHeight="27.0" prefWidth="91.0" promptText="Year" GridPane.rowIndex="12" fx:id="x_CCE_ACQUISITION1" />
+            <ComboBox prefHeight="27.0" prefWidth="92.0" promptText="Month" GridPane.columnIndex="1" GridPane.rowIndex="12" fx:id="x_CCE_ACQUISITION2" />
+            <Label text="Model" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -209,24 +205,27 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <ComboBox onAction="#handleOnModelChange" prefHeight="31.0" prefWidth="192.0" promptText="Model" GridPane.rowIndex="7" fx:id="x_CCE_MODEL">
+            <ComboBox onAction="#handleOnModelChange" prefHeight="31.0" prefWidth="192.0" promptText="Model" GridPane.rowIndex="6" fx:id="x_CCE_MODEL">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
             </ComboBox>
-            <ComboBox disable="true" onAction="#handleOnMakeChange" prefHeight="31.0" prefWidth="192.0" promptText="Company/Make" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="7" fx:id="x_CCE_MAKE">
+            <ComboBox disable="true" onAction="#handleOnMakeChange" prefHeight="31.0" prefWidth="192.0" promptText="Company/Make" visibleRowCount="6" GridPane.columnIndex="1" GridPane.rowIndex="6" fx:id="x_CCE_MAKE">
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </ComboBox>
-            <Label text="Company/Make" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Label text="Company/Make" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="18.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
+            <Separator prefHeight="4.0" prefWidth="376.0" GridPane.rowIndex="4" />
+            <Separator prefHeight="4.0" prefWidth="376.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Separator prefHeight="4.0" prefWidth="376.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>

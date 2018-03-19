@@ -32,7 +32,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleGeneratorBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Cold Rooms &amp;Freezer rooms" fx:id="x_GENERATOR_BTN">
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleGeneratorBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Update and New CCE" fx:id="x_GENERATOR_BTN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -93,7 +93,7 @@ public class CCEAssetMainController {
 	public void setRootLayoutController(
 			RootLayoutController rootLayoutController) {
 		this.rootLayoutController = rootLayoutController;
-		rootLayoutController.getX_ROOT_COMMON_LABEL().setText("Cold Rooms & Freezer Rooms\nRefrigerators & Freezers");
+		rootLayoutController.getX_ROOT_COMMON_LABEL().setText("Update and New CCE");
 	}
 
 	public void setMainApp(MainApp mainApp) {

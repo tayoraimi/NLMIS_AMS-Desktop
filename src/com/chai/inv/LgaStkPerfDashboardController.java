@@ -1,6 +1,7 @@
 
 package com.chai.inv;
 
+import com.chai.inv.DAO.DatabaseOperation;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -181,6 +182,8 @@ public class LgaStkPerfDashboardController {
 			System.out.println("in setdefaults");
 			x_GRID_PANE.getChildren().clear();
 			rowIndex=0;
+                        DatabaseOperation.CONNECT_TO_SERVER=false;
+                        DatabaseOperation.getDbo().closeConnection();
 			lgaStkPerfDashboardList=new DashboardService().getLgaStkPerfDashBoard(bean);
 			SortedSet<String> statenameList=new TreeSet<>();
 			for (LgaDashBoardPerfBean data : lgaStkPerfDashboardList) {

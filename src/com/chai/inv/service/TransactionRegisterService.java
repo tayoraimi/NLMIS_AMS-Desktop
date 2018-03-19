@@ -75,6 +75,7 @@ public class TransactionRegisterService {
 			}
 			if (trBean1 == null) {
 				pstmt = dao.getPreparedStatement(query);
+                                System.out.println("The first query: "+pstmt);
 			} else {
 				String querySubString = " WHERE TRANSACTION_TYPE_ID = IFNULL(?, TRANSACTION_TYPE_ID) " // ?
 						+" AND ITEM_ID=IFNULL("+trBean1.getX_ITEM_ID()+",ITEM_ID)"
@@ -86,6 +87,7 @@ public class TransactionRegisterService {
 				String refreshQuery = query + querySubString;
 				pstmt = dao.getPreparedStatement(refreshQuery);
 				pstmt.setString(1, trBean1.getX_TRANSACTION_TYPE_ID());
+                                System.out.println("The 2nd query: "+pstmt);
 				if (trBean1.getX_FROM_DATE_PICKER() != null) {
 					pstmt.setString(2, trBean1.getX_FROM_DATE_PICKER());
 				} else {

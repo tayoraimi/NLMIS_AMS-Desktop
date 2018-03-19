@@ -22,7 +22,7 @@
             <!--<RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" valignment="CENTER" vgrow="SOMETIMES" />-->
         </rowConstraints>
          <children>
-            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCCEBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Cold Rooms &amp;Freezer rooms" fx:id="x_CCE_BTN">
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#handleCCEBtn" prefHeight="116.0" prefWidth="146.0" styleClass="dark-blue-button" text="Update and New CCE" fx:id="x_CCE_BTN">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

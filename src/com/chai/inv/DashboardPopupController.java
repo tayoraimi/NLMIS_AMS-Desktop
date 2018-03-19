@@ -41,6 +41,7 @@ public class DashboardPopupController {
 	@FXML ComboBox<String> x_WEEK_FILTER;
 	@FXML Button x_LGA_STK_PERF_DASH_BTN;
 	@FXML Button x_HF_REPORT_DASHBORD_BTN;
+	@FXML Button x_HF_BAL_REPORT_DASHBORD_BTN;
 	@FXML Button  x_LGA_SUMMUARY_SHEET;
 	@FXML Button  x_STATE_STK_STATUS_DASH;
 	private PopOver popup;
@@ -77,6 +78,7 @@ public class DashboardPopupController {
 			case "NTO": // SUPER ADMIN - access to each and every module.
 				System.out.println("called NTO switch.case");
 				x_GRID_PANE.getChildren().remove(x_HF_REPORT_DASHBORD_BTN);
+				x_GRID_PANE.getChildren().remove(x_HF_BAL_REPORT_DASHBORD_BTN);
 				x_GRID_PANE.getChildren().remove(x_LGA_STK_PERF_DASH_BTN);
 				x_LGA_STK_PERF_DASH_BTN.setText("National Stock Dashboard");
 				break;
@@ -150,8 +152,32 @@ public class DashboardPopupController {
 			MainApp.LOGGER.severe(MyLogger.getStackTrace(e));
 		}
 	}
+	@FXML public  void handleHfStkBalDashboard(){
+		System.out.println("in dashboardpopupcont.handleHfStkBalDashboard()");
+		popup.hide();
+		FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/com/chai/inv/view/HfStkBalDashboard.fxml"));
+		try {
+			BorderPane hfStkBalDashGrid = (BorderPane) loader.load();
+			hfStkBalDashGrid.setUserData(loader);
+			HfStkBalDashboardController controller = loader.getController();
+			new SetTransitionOnScreen().setTransition(mainBorderPane,
+					"parrallelFadeTranslate", movePageDirection);
+			mainBorderPane.setCenter(hfStkBalDashGrid);
+			controller.setRootLayoutController(rootLayoutController);
+			controller.setMainBorderPane(mainBorderPane);
+			controller.setMainApp(mainApp);
+			controller.setRole(role);
+			controller.setUserBean(userBean);
+			controller.setDashBoardPopupController(this);
+			controller.setPrimaryStage(primaryStage);
+		}catch(Exception e){
+			e.printStackTrace();
+			MainApp.LOGGER.setLevel(Level.SEVERE);
+			MainApp.LOGGER.severe(MyLogger.getStackTrace(e));
+		}
+	}
 	@FXML public void handleLgaStockPerfDashboard(){
-		System.out.println("in dashboardpopupcont.handleHfStkPerfDashboard()");
+		System.out.println("in dashboardpopupcont.handleLgaStockPerfDashboard()");
 		popup.hide();
 		FXMLLoader loader = new FXMLLoader(
 				MainApp.class
