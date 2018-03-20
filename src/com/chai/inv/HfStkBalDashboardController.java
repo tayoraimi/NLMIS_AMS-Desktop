@@ -348,7 +348,7 @@ public class HfStkBalDashboardController {
 				&& MainApp.selectedLGA==null){
 			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("LGA Stock Dashboard");
 		}else{
-			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("Facility Stock Dashboard");
+			rootLayoutController.getX_ROOT_COMMON_LABEL().setText("Stock Balance Dashboard");
 		}
 	}
 	public UserBean getUserBean() {

@@ -55,14 +55,31 @@ public class ItemsOnHandListService {
 	public ObservableList<ItemsOnHandListBean> getItemsOnHandList(ItemsOnHandListBean itemsOnHandListBean) {
 		ObservableList<ItemsOnHandListBean> list = FXCollections.observableArrayList();
 		String mainQuery = "";
-		String query1 = "SELECT DISTINCT ITEM_ID, ITEM_NUMBER, "
+		String query1 = "SELECT ITEM_ID, "
+                                + "ITEM_NUMBER, ITEM_SAFETY_STOCK, "
+                                + "SUM(ONHAND_QUANTITY) AS ONHAND_QUANTITY, TRANSACTION_UOM, "
+                                + "ITEMS_BELOW_SAFETY_STOCK FROM "
+                                + "("
+                                + "SELECT DISTINCT ITEM_ID, ITEM_NUMBER, "
 				+ " ITEM_SAFETY_STOCK, "
 				+ "  ONHAND_QUANTITY, "
 				+ " TRANSACTION_UOM, ITEMS_BELOW_SAFETY_STOCK "
 				+ " FROM ITEM_ONHAND_QUANTITIES_VW "
 				+ " WHERE WAREHOUSE_ID =IFNULL("+itemsOnHandListBean.getX_USER_WAREHOUSE_ID()+",WAREHOUSE_ID) " 
-				+ " AND ITEM_ID = IFNULL("+itemsOnHandListBean.getX_ITEM_DROP_DOWN()+", ITEM_ID) " + " GROUP BY ITEM_ID ";
-			mainQuery = query1;
+				+ " AND ITEM_ID = IFNULL("+itemsOnHandListBean.getX_ITEM_DROP_DOWN()+", ITEM_ID) " + " GROUP BY ITEM_ID "
+                                + "UNION"
+                                + " SELECT ITEM_ID, ITEM_NUMBER, "
+                                + "'' AS ITEM_SAFETY_STOCK, "
+                                + "SUM(STOCK_BALANCE) AS ONHAND_QUANTITY, "
+                                + "'' AS TRANSACTION_UOM,  "
+                                + "'' AS ITEMS_BELOW_SAFETY_STOCK "
+                                + "FROM view_manual_hf_stock_entry "
+                                + " WHERE DEFAULT_STORE_ID =IFNULL("+MainApp.getUSER_WAREHOUSE_ID()+",DEFAULT_STORE_ID) "
+                                + " AND DATE_FORMAT(ENTRY_DATE,'%v') = WEEK(NOW()) AND DATE_FORMAT(ENTRY_DATE,'%Y') =  YEAR(NOW())"
+                                + "GROUP BY ITEM_ID"
+                                + ")"
+                                + " AS t GROUP BY ITEM_ID";
+                        mainQuery = query1;
 		try {
 			if (dao == null || dao.getConnection() == null || dao.getConnection().isClosed()) {
 				dao = DatabaseOperation.getDbo();
